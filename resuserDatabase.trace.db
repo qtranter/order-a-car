@@ -1,0 +1,3 @@
+2019-10-18 01:12:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "JOBS" not found; SQL statement:
+SELECT id, first_name, last_name FROM jobs [42102-200]
