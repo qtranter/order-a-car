@@ -3,7 +3,6 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,9 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 public class LogInController {
     @FXML
@@ -22,7 +19,7 @@ public class LogInController {
     @FXML
     private TextField loginPassword;
 
-    DatabaseManager databaseManager;
+    private DatabaseManager databaseManager;
 
     public LogInController() throws SQLException {
         databaseManager = new DatabaseManager();
@@ -32,10 +29,9 @@ public class LogInController {
         String userName = loginUsername.getText();
         String password = loginPassword.getText();
 
-        if(databaseManager.validate(userName, password)) {
+        if (databaseManager.validate(userName, password)) {
             System.out.println("Login Successful!");
-        }
-        else {
+        } else {
             System.out.println("Login failed!");
         }
 
@@ -47,7 +43,7 @@ public class LogInController {
         Parent root = FXMLLoader.load(getClass().getResource("Registration.fxml"));
         Scene signInScene = new Scene(root);
 
-        Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
         window.setScene(signInScene);
         window.show();

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("OAC");
         primaryStage.setScene(new Scene(root, 375, 450));

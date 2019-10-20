@@ -7,15 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.*;
 
-public class RegistrationController implements Initializable {
+public class RegistrationController {
     @FXML
     private TextField txtName;
 
@@ -99,7 +97,7 @@ public class RegistrationController implements Initializable {
 
     @FXML
     void checkPasswordMatch(KeyEvent event) {
-        if(passMain.getText().equals(passConfirm.getText()) ){
+        if (passMain.getText().equals(passConfirm.getText())) {
             txtPasswordNotMatch.setVisible(false);
         } else {
             txtPasswordNotMatch.setVisible(true);
@@ -108,7 +106,7 @@ public class RegistrationController implements Initializable {
 
     @FXML
     void enableCarInfoSection(ActionEvent event) {
-        if(btnDriver.isSelected()){
+        if (btnDriver.isSelected()) {
             areaDriver.setDisable(false);
         } else {
             areaDriver.setDisable(true);
@@ -117,7 +115,7 @@ public class RegistrationController implements Initializable {
 
     @FXML
     void submitForm(ActionEvent event) {
-        boolean nameEmpty= txtName.getText() == null || txtName.getText().trim().isEmpty();
+        boolean nameEmpty = txtName.getText() == null || txtName.getText().trim().isEmpty();
         boolean userNameEmpty = txtUserName.getText() == null || txtUserName.getText().trim().isEmpty();
         boolean passwordEmpty = txtPasswordNotMatch.isVisible() || passMain.getText() == null ||
                 passMain.getText().trim().isEmpty() || passConfirm.getText() == null || passConfirm.getText().trim().isEmpty();
@@ -135,7 +133,7 @@ public class RegistrationController implements Initializable {
         boolean cityEmpty = txtCity.getText() == null || txtCity.getText().trim().isEmpty();
         boolean stateBillEmpty = chcStateBilling.getSelectionModel().isEmpty();
         boolean zipEmpty = txtZip.getText() == null || txtZip.getText().trim().isEmpty();
-        if(!(nameEmpty||userNameEmpty||passwordEmpty||userTypeNotSelected||firstNameEmpty||lastNameEmpty||creditCardNumEmpty||monthEmpty||yearCardEmpty||cvvEmpty||address1Empty||cityEmpty||stateBillEmpty||zipEmpty)){
+        if (!(nameEmpty || userNameEmpty || passwordEmpty || userTypeNotSelected || firstNameEmpty || lastNameEmpty || creditCardNumEmpty || monthEmpty || yearCardEmpty || cvvEmpty || address1Empty || cityEmpty || stateBillEmpty || zipEmpty)) {
             txtMissingItems.setVisible(false);
             completeRegistration();
             final Node source = (Node) event.getSource();
@@ -147,16 +145,16 @@ public class RegistrationController implements Initializable {
 
     }
 
-    public void completeRegistration(){
+    public void completeRegistration() {
         String name = txtName.getText();
         String userName = txtUserName.getText();
         String password = passMain.getText();
         String userType;
-        if(btnRider.isSelected()){
+        if (btnRider.isSelected()) {
             userType = "Rider";
-        } else if(btnDriver.isSelected()){
+        } else if (btnDriver.isSelected()) {
             userType = "Driver";
-        } else if(btnDriver.isSelected()&&btnRider.isSelected()){
+        } else if (btnDriver.isSelected() && btnRider.isSelected()) {
             userType = "Driver and Rider";
         } else {
             userType = "N/A";
@@ -177,26 +175,24 @@ public class RegistrationController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resource) {
         List<Integer> monthList = new ArrayList<>();
-        for(int x=1;x<=12;x++){
+        for (int x = 1; x <= 12; x++) {
             monthList.add(x);
         }
         ObservableList month = FXCollections.observableArrayList(monthList);
         chcMonth.getItems().addAll(month);
         List<Integer> yearList = new ArrayList<>();
         int year = Calendar.getInstance().get(Calendar.YEAR);
-        for (int y = year; y<(year +20); y++ ){
+        for (int y = year; y < (year + 20); y++) {
             yearList.add(y);
         }
         ObservableList yearObsList = FXCollections.observableArrayList(yearList);
         chcYear.getItems().addAll(yearObsList);
-        String states[] = {"AL","AK","AS","AZ","AR","CA","CO","CT","DE","DC","FM","FL","GA","GU","HI","ID","IL","IN",
-                "IA","KS","KY","LA","ME","MH","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC",
-                "ND","MP","OH","OK","OR","PW","PA","PR","RI","SC","SD","TN","TX","UT","VT","VI","VA","WA","WV","WI",
+        String states[] = {"AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN",
+                "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC",
+                "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI",
                 "WY"};
         List<String> statesList = new ArrayList<>();
-        for(int x = 0; x<59;x++){
-            statesList.add(states[x]);
-        }
+        statesList.addAll(Arrays.asList(states).subList(0, 59));
         System.out.println(states.length);
         ObservableList statesObsList = FXCollections.observableArrayList(statesList);
         chcStateBilling.getItems().addAll(statesObsList);
