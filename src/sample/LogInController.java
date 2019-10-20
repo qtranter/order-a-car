@@ -25,12 +25,32 @@ public class LogInController {
         databaseManager = new DatabaseManager();
     }
 
-    public void handleLoginButton(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void handleLoginButton(javafx.event.ActionEvent actionEvent) throws IOException, SQLException {
         String userName = loginUsername.getText();
         String password = loginPassword.getText();
 
-        if (databaseManager.validate(userName, password)) {
-            System.out.println("Login Successful!");
+        if (databaseManager.validateLogin(userName, password)) {
+            if(databaseManager.userType(userName, password) == 1) {
+                System.out.println("Login Successful!");
+                Parent root = FXMLLoader.load(getClass().getResource("Driver.fxml"));
+                Scene riderScene = new Scene(root);
+
+                Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+                window.setScene(riderScene);
+                window.show();
+            }
+            else if(databaseManager.userType(userName, password) == 0) {
+                System.out.println("Login Successful!");
+                Parent root = FXMLLoader.load(getClass().getResource("Rider.fxml"));
+                Scene riderScene = new Scene(root);
+
+                Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+                window.setScene(riderScene);
+                window.show();
+            }
+
         } else {
             System.out.println("Login failed!");
         }
@@ -41,7 +61,7 @@ public class LogInController {
 
     public void handleSignInButton(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Registration.fxml"));
-        Scene signInScene = new Scene(root);
+        Scene signInScene = new Scene(root, 554, 600);
 
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 

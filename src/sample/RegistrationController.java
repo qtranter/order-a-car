@@ -4,16 +4,27 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.*;
 
-public class RegistrationController {
+public class RegistrationController implements Initializable {
+    DatabaseManager databaseManager;
+
+    public RegistrationController() throws SQLException {
+        databaseManager = new DatabaseManager();
+    }
     @FXML
     private TextField txtName;
 
@@ -114,7 +125,7 @@ public class RegistrationController {
     }
 
     @FXML
-    void submitForm(ActionEvent event) {
+    void submitForm(ActionEvent event) throws IOException {
         boolean nameEmpty = txtName.getText() == null || txtName.getText().trim().isEmpty();
         boolean userNameEmpty = txtUserName.getText() == null || txtUserName.getText().trim().isEmpty();
         boolean passwordEmpty = txtPasswordNotMatch.isVisible() || passMain.getText() == null ||
@@ -124,9 +135,9 @@ public class RegistrationController {
         boolean lastNameEmpty = txtLastName.getText() == null || txtLastName.getText().trim().isEmpty();
         boolean creditCardNumEmpty = txtCreditCardNum.getText() == null || txtCreditCardNum.getText().trim().isEmpty();
         boolean monthEmpty = chcMonth.getSelectionModel().isEmpty();
-        System.out.println(monthEmpty);
-        System.out.println("name " + nameEmpty);
-        System.out.println("type " + userTypeNotSelected);
+//        System.out.println(monthEmpty);
+//        System.out.println("name " + nameEmpty);
+//        System.out.println("type " + userTypeNotSelected);
         boolean yearCardEmpty = chcYear.getSelectionModel().isEmpty();
         boolean cvvEmpty = txtCVV.getText() == null || txtCVV.getText().trim().isEmpty();
         boolean address1Empty = txtAddress1.getText() == null || txtAddress1.getText().trim().isEmpty();
@@ -136,9 +147,16 @@ public class RegistrationController {
         if (!(nameEmpty || userNameEmpty || passwordEmpty || userTypeNotSelected || firstNameEmpty || lastNameEmpty || creditCardNumEmpty || monthEmpty || yearCardEmpty || cvvEmpty || address1Empty || cityEmpty || stateBillEmpty || zipEmpty)) {
             txtMissingItems.setVisible(false);
             completeRegistration();
-            final Node source = (Node) event.getSource();
-            final Stage stage = (Stage) source.getScene().getWindow();
-            stage.close(); //closes the window
+//            final Node source = (Node) event.getSource();
+//            final Stage stage = (Stage) source.getScene().getWindow();
+//            stage.close(); //closes the window
+            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Scene riderScene = new Scene(root);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(riderScene);
+            window.show();
         } else {
             txtMissingItems.setVisible(true);
         }
@@ -149,15 +167,15 @@ public class RegistrationController {
         String name = txtName.getText();
         String userName = txtUserName.getText();
         String password = passMain.getText();
-        String userType;
+        int userType;
         if (btnRider.isSelected()) {
-            userType = "Rider";
+            userType = 0;
         } else if (btnDriver.isSelected()) {
-            userType = "Driver";
+            userType = 1;
         } else if (btnDriver.isSelected() && btnRider.isSelected()) {
-            userType = "Driver and Rider";
+            userType = 1;
         } else {
-            userType = "N/A";
+            userType = 2;
         }
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
@@ -171,6 +189,7 @@ public class RegistrationController {
         String state = (String) chcStateBilling.getValue();
         String zip = txtZip.getText(); //String for now
 
+        databaseManager.insert(1, firstName, lastName, userType, userName, password );
     }
 
     public void initialize(URL url, ResourceBundle resource) {
@@ -193,7 +212,7 @@ public class RegistrationController {
                 "WY"};
         List<String> statesList = new ArrayList<>();
         statesList.addAll(Arrays.asList(states).subList(0, 59));
-        System.out.println(states.length);
+//        System.out.println(states.length);
         ObservableList statesObsList = FXCollections.observableArrayList(statesList);
         chcStateBilling.getItems().addAll(statesObsList);
         chcStateCar.getItems().addAll(statesObsList);

@@ -1,5 +1,7 @@
 package sample;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
+
 import java.sql.*;
 
 public class DatabaseManager {
@@ -16,7 +18,7 @@ public class DatabaseManager {
 
         try {
             Statement stmt = con.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM driver;");
+            rs = stmt.executeQuery("SELECT * FROM USER;");
 
             System.out.println("ID: " + "First Name: " + "Last Name:");
 
@@ -31,15 +33,19 @@ public class DatabaseManager {
         }
     }
 
-    public void insert(String table, int id, String first_name, String last_name) {
+    public void insert(int id, String first_name, String last_name, int user_type, String username, String password) {
         try {
-            String sql = "INSERT INTO " + table + " VALUES (?, ?, ?)";
+            //String sql = "INSERT INTO " + table + " VALUES (?, ?, ?)";
+            String sql = "INSERT INTO USER VALUES (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement insertUser = con.prepareStatement(sql);
 
             insertUser.setInt(1, id);
             insertUser.setString(2, first_name);
             insertUser.setString(3, last_name);
+            insertUser.setInt(4, user_type);
+            insertUser.setString(5, username);
+            insertUser.setString(6, password);
 
             insertUser.execute();
         } catch (SQLException e) {
@@ -47,9 +53,11 @@ public class DatabaseManager {
         }
     }
 
-    public boolean validate(String userName, String password) {
+    //Will only go to the next scene if the user has already created an account. This is the first step
+    //in determining which scene to send the user
+    public boolean validateLogin(String userName, String password) {
         try {
-            String sql = "SELECT * FROM DRIVER WHERE FIRST_NAME = ? and last_name = ?";
+            String sql = "SELECT * FROM USER WHERE USERNAME = ? and PASSWORD = ?";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, userName);
             preparedStatement.setString(2, password);
@@ -65,6 +73,20 @@ public class DatabaseManager {
             sqlExceptionHandler(e);
         }
         return false;
+    }
+
+    public int userType(String username, String password) throws SQLException {
+        String sql = "SELECT USER_TYPE FROM USER WHERE USERNAME = ? AND PASSWORD = ?";
+        PreparedStatement preparedStatement = con.prepareStatement(sql);
+        preparedStatement.setString(1, username);
+        preparedStatement.setString(2, password);
+
+        int riderType = -1;
+        ResultSet rs = preparedStatement.executeQuery();
+        while(rs.next()) {
+            riderType = rs.getInt("USER_TYPE");
+        }
+        return riderType;
     }
 
     public void sqlExceptionHandler(SQLException error) {
