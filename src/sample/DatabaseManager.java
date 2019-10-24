@@ -55,7 +55,7 @@ public class DatabaseManager {
 
     //Will only go to the next scene if the user has already created an account. This is the first step
     //in determining which scene to send the user
-    public boolean validateLogin(String userName, String password) {
+    public boolean userExists(String userName, String password) {
         try {
             String sql = "SELECT * FROM USER WHERE USERNAME = ? and PASSWORD = ?";
             PreparedStatement preparedStatement = con.prepareStatement(sql);

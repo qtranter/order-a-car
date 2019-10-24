@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.h2.util.StringUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +21,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class RegistrationController implements Initializable {
-    DatabaseManager databaseManager;
+    private DatabaseManager databaseManager;
 
     public RegistrationController() throws SQLException {
         databaseManager = new DatabaseManager();
@@ -131,6 +132,7 @@ public class RegistrationController implements Initializable {
         boolean passwordEmpty = txtPasswordNotMatch.isVisible() || passMain.getText() == null ||
                 passMain.getText().trim().isEmpty() || passConfirm.getText() == null || passConfirm.getText().trim().isEmpty();
         boolean userTypeNotSelected = (!btnDriver.isSelected() && !btnRider.isSelected());
+//        StringUtils.isNullOrEmpty(txtUserName.getText());
         boolean firstNameEmpty = txtFirstName.getText() == null || txtFirstName.getText().trim().isEmpty();
         boolean lastNameEmpty = txtLastName.getText() == null || txtLastName.getText().trim().isEmpty();
         boolean creditCardNumEmpty = txtCreditCardNum.getText() == null || txtCreditCardNum.getText().trim().isEmpty();
