@@ -181,17 +181,20 @@ public class RegistrationController implements Initializable {
         }
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
-        String creditCardNumber = txtCreditCardNum.getText(); //String for now
-        int monthCard = (Integer) chcMonth.getValue();
-        int yearCard = (Integer) chcYear.getValue();
-        String cvv = txtCVV.getText(); //String for now
+//        String creditCardNumber = txtCreditCardNum.getText(); //String for now
+//        int monthCard = (Integer) chcMonth.getValue();
+//        int yearCard = (Integer) chcYear.getValue();
+//        String cvv = txtCVV.getText(); //String for now
         String address1 = txtAddress1.getText();
         String address2 = txtAddress2.getText();
         String city = txtCity.getText();
         String state = (String) chcStateBilling.getValue();
         String zip = txtZip.getText(); //String for now
 
-        databaseManager.insert(1, firstName, lastName, userType, userName, password );
+        int rating = 0;
+        int coins = 100;
+        String address = address1 + ", " + address2 + city + " " + state + ", " + zip;
+        databaseManager.insert(firstName, lastName, userName, password, rating, coins, address, userType);
     }
 
     public void initialize(URL url, ResourceBundle resource) {
