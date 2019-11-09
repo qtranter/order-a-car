@@ -217,16 +217,18 @@ public class RegistrationController implements Initializable {
         } catch (Exception e) {
 
         }
-        int OakCoins = 100;
+        int coins = 100;
         int userType = 0;
         if (btnRider.isSelected()) {
-            userType = 0;
+            userType = 0; //number for now
             //insert a way to insert data for database here for Riders
+            databaseManager.insert(1, firstName, lastName, userType, userName, password);
         } else if (btnDriver.isSelected()) {
-            userType = 1;
-            //insert a way to insert data for database here for drivers
+            userType = 1;//number for now
+            databaseManager.insert(firstName, lastName, userName, password, rating, coins, userType); //need to add
+            //more information(state,license,driver num, car make, car model, car year)
         }
-        databaseManager.insert(1, firstName, lastName, userType, userName, password);
+        
 
     }
 
