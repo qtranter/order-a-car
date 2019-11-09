@@ -1,13 +1,22 @@
 package sample;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class DriverController {
 
 
-   @FXML
+    @FXML
     private Label nameLabel;
 
     @FXML
@@ -115,4 +124,32 @@ public class DriverController {
     @FXML
     private Label historyTipThree;
 
+    @FXML
+    void changeName(ActionEvent event) {
+    }
+
+    @FXML
+    void handleLogOut(ActionEvent event) throws IOException {
+
+            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Scene logInScene = new Scene(root);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(logInScene);
+            window.show();
+        }
+
+    
+
+    private void setScene(ActionEvent event, Scene nextScene) {
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(nextScene);
+        window.show();
+    }
+
 }
+
+
+
