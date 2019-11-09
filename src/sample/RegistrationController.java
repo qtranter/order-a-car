@@ -26,8 +26,12 @@ public class RegistrationController implements Initializable {
     public RegistrationController() throws SQLException {
         databaseManager = new DatabaseManager();
     }
+
     @FXML
-    private TextField txtName;
+    private TextField txtFirstName;
+
+    @FXML
+    private TextField txtLastName;
 
     @FXML
     private TextField txtUserName;
@@ -54,7 +58,7 @@ public class RegistrationController implements Initializable {
     private AnchorPane areaDriver;
 
     @FXML
-    private ComboBox<?> chcStateCar;
+    private ComboBox<String> chcStateCar;
 
     @FXML
     private TextField txtDriverNum;
@@ -72,40 +76,39 @@ public class RegistrationController implements Initializable {
     private TextField txtMake;
 
     @FXML
-    private TextField txtFirstName;
-
-    @FXML
-    private TextField txtLastName;
-
-    @FXML
-    private TextField txtCreditCardNum;
-
-    @FXML
-    private ComboBox<?> chcMonth;
-
-    @FXML
-    private ComboBox<?> chcYear;
-
-    @FXML
-    private TextField txtCVV;
-
-    @FXML
-    private ComboBox<?> chcStateBilling;
-
-    @FXML
-    private TextField txtAddress1;
-
-    @FXML
-    private TextField txtCity;
-
-    @FXML
-    private TextField txtAddress2;
-
-    @FXML
-    private TextField txtZip;
+    private Label txtOnlyOneUserType;
 
     @FXML
     private Label txtMissingItems;
+
+    @FXML
+    private ComboBox<Integer> chcYear;
+
+    @FXML
+    private Label txtDriverNumValid;
+
+    @FXML
+    private Label txtLicensePlateValid;
+
+    @FXML
+    void checkDriverNum(KeyEvent event) {
+        if (txtDriverNum.getText().length() > 13 || txtDriverNum.getText().length() <= 11) {
+            txtDriverNumValid.setVisible(true);
+        } else {
+            txtDriverNumValid.setVisible(false);
+        }
+
+    }
+
+    @FXML
+    void checkLicensePlate(KeyEvent event) {
+        if (txtLicensePlate.getText().length() > 9) {
+            txtLicensePlateValid.setVisible(true);
+        } else {
+            txtLicensePlateValid.setVisible(false);
+        }
+    }
+
 
     @FXML
     void checkPasswordMatch(KeyEvent event) {
@@ -123,30 +126,64 @@ public class RegistrationController implements Initializable {
         } else {
             areaDriver.setDisable(true);
         }
+        if (btnRider.isSelected() && btnDriver.isSelected()) {
+            txtOnlyOneUserType.setVisible(true);
+        } else {
+            txtOnlyOneUserType.setVisible(false);
+        }
     }
 
     @FXML
     void submitForm(ActionEvent event) throws IOException {
-        boolean nameEmpty = txtName.getText() == null || txtName.getText().trim().isEmpty();
-        boolean userNameEmpty = txtUserName.getText() == null || txtUserName.getText().trim().isEmpty();
-        boolean passwordEmpty = txtPasswordNotMatch.isVisible() || passMain.getText() == null ||
-                passMain.getText().trim().isEmpty() || passConfirm.getText() == null || passConfirm.getText().trim().isEmpty();
-        boolean userTypeNotSelected = (!btnDriver.isSelected() && !btnRider.isSelected());
-//        StringUtils.isNullOrEmpty(txtUserName.getText());
-        boolean firstNameEmpty = txtFirstName.getText() == null || txtFirstName.getText().trim().isEmpty();
-        boolean lastNameEmpty = txtLastName.getText() == null || txtLastName.getText().trim().isEmpty();
-        boolean creditCardNumEmpty = txtCreditCardNum.getText() == null || txtCreditCardNum.getText().trim().isEmpty();
-        boolean monthEmpty = chcMonth.getSelectionModel().isEmpty();
-//        System.out.println(monthEmpty);
-//        System.out.println("name " + nameEmpty);
-//        System.out.println("type " + userTypeNotSelected);
-        boolean yearCardEmpty = chcYear.getSelectionModel().isEmpty();
-        boolean cvvEmpty = txtCVV.getText() == null || txtCVV.getText().trim().isEmpty();
-        boolean address1Empty = txtAddress1.getText() == null || txtAddress1.getText().trim().isEmpty();
-        boolean cityEmpty = txtCity.getText() == null || txtCity.getText().trim().isEmpty();
-        boolean stateBillEmpty = chcStateBilling.getSelectionModel().isEmpty();
-        boolean zipEmpty = txtZip.getText() == null || txtZip.getText().trim().isEmpty();
-        if (!(nameEmpty || userNameEmpty || passwordEmpty || userTypeNotSelected || firstNameEmpty || lastNameEmpty || creditCardNumEmpty || monthEmpty || yearCardEmpty || cvvEmpty || address1Empty || cityEmpty || stateBillEmpty || zipEmpty)) {
+        boolean finishRegistration = true;
+        TextField txtArray[] = {txtFirstName, txtLastName, txtUserName, passConfirm};
+        TextField txtArrayDriver[] = {txtMake, txtModel, txtLicensePlate, txtDriverNum};
+        List<TextField> txtList = new ArrayList<>(Arrays.asList(txtArray));
+        if (btnDriver.isSelected()) {
+            List<TextField> txtDriverList = new ArrayList<>();
+            txtDriverList = Arrays.asList(txtArrayDriver);
+            txtList.addAll(txtDriverList);
+        }
+        String output = null;
+        for (TextField text : txtList) {
+            if (text.getText() == null || text.getText().trim().isEmpty()) {
+                if (output == null) {
+                    output = "Missing: " + text.getPromptText();
+                    finishRegistration = false;
+                } else {
+                    output += ", " + text.getPromptText();
+                }
+            }
+        }
+        if (!btnDriver.isSelected() && !btnRider.isSelected()) {
+            if (output == null) {
+                output = "Missing: User Type";
+                finishRegistration = false;
+            } else {
+                output += ", User Type";
+            }
+        }
+        if (txtPasswordNotMatch.isVisible() || txtOnlyOneUserType.isVisible() || txtLicensePlateValid.isVisible()
+                || txtDriverNumValid.isVisible()) {
+            finishRegistration = false;
+        }
+        if (chcYear.getSelectionModel().getSelectedItem() == null && btnDriver.isSelected()) {
+            if (output == null) {
+                output = "Missing: Year";
+                finishRegistration = false;
+            } else {
+                output += ", Year";
+            }
+        }
+        if (chcStateCar.getSelectionModel().getSelectedItem() == null && btnDriver.isSelected()) {
+            if (output == null) {
+                output = "Missing: State";
+                finishRegistration = false;
+            } else {
+                output += ", State";
+            }
+        }
+        if (finishRegistration) {
             txtMissingItems.setVisible(false);
             completeRegistration();
 //            final Node source = (Node) event.getSource();
@@ -160,41 +197,37 @@ public class RegistrationController implements Initializable {
             window.setScene(riderScene);
             window.show();
         } else {
+            txtMissingItems.setText(output);
             txtMissingItems.setVisible(true);
         }
-
     }
 
     public void completeRegistration() {
-        String name = txtName.getText();
-        String userName = txtUserName.getText();
-        String password = passMain.getText();
-        int userType;
-        if (btnRider.isSelected()) {
-            userType = 0;
-        } else if (btnDriver.isSelected()) {
-            userType = 1;
-        } else if (btnDriver.isSelected() && btnRider.isSelected()) {
-            userType = 1;
-        } else {
-            userType = 2;
-        }
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
-//        String creditCardNumber = txtCreditCardNum.getText(); //String for now
-//        int monthCard = (Integer) chcMonth.getValue();
-//        int yearCard = (Integer) chcYear.getValue();
-//        String cvv = txtCVV.getText(); //String for now
-        String address1 = txtAddress1.getText();
-        String address2 = txtAddress2.getText();
-        String city = txtCity.getText();
-        String state = (String) chcStateBilling.getValue();
-        String zip = txtZip.getText(); //String for now
+        String userName = txtUserName.getText();
+        String password = passMain.getText();
+        String make = txtMake.getText();
+        String model = txtModel.getText();
+        String licensePlate = txtLicensePlate.getText();
+        String driverNum = txtDriverNum.getText();
+        try {
+            int year = chcYear.getSelectionModel().getSelectedItem();
+            String state = chcStateCar.getSelectionModel().getSelectedItem();
+        } catch (Exception e) {
 
-        int rating = 0;
-        int coins = 100;
-        String address = address1 + ", " + address2 + city + " " + state + ", " + zip;
-        databaseManager.insert(firstName, lastName, userName, password, rating, coins, address, userType);
+        }
+        int OakCoins = 100;
+        int userType = 0;
+        if (btnRider.isSelected()) {
+            userType = 0;
+            //insert a way to insert data for database here for Riders
+        } else if (btnDriver.isSelected()) {
+            userType = 1;
+            //insert a way to insert data for database here for drivers
+        }
+        databaseManager.insert(1, firstName, lastName, userType, userName, password);
+
     }
 
     public void initialize(URL url, ResourceBundle resource) {
@@ -203,23 +236,20 @@ public class RegistrationController implements Initializable {
             monthList.add(x);
         }
         ObservableList month = FXCollections.observableArrayList(monthList);
-        chcMonth.getItems().addAll(month);
         List<Integer> yearList = new ArrayList<>();
         int year = Calendar.getInstance().get(Calendar.YEAR);
-        for (int y = year; y < (year + 20); y++) {
+        for (int y = year + 1; y > 1920; y--) {
             yearList.add(y);
         }
         ObservableList yearObsList = FXCollections.observableArrayList(yearList);
-        chcYear.getItems().addAll(yearObsList);
+        chcYear.setItems(yearObsList);
         String states[] = {"AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN",
                 "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC",
                 "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI",
                 "WY"};
         List<String> statesList = new ArrayList<>();
         statesList.addAll(Arrays.asList(states).subList(0, 59));
-//        System.out.println(states.length);
         ObservableList statesObsList = FXCollections.observableArrayList(statesList);
-        chcStateBilling.getItems().addAll(statesObsList);
         chcStateCar.getItems().addAll(statesObsList);
     }
 
