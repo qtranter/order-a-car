@@ -38,12 +38,12 @@ CREATE TABLE RIDES (
 [Recording number two!](link)
 
 ## Changes since last prototype
--RiderController added
--DriverController added
--Rider FXML updated
--Driver FXML updated
--DatabaseManager updated, cleaner code, and methods added for more complex functions
--Ride class added to handle state transfer after login
--User/Rides database tables updated to correctly capture all information
--CSS stylesheet added for backgrounds
+- RiderController added
+- DriverController added
+- Rider FXML updated
+- Driver FXML updated
+- DatabaseManager updated, cleaner code, and methods added for more complex functions
+- Ride class added to handle state transfer after login
+- User/Rides database tables updated to correctly capture all information
+- CSS stylesheet added for backgrounds
 
