@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,10 +9,10 @@ import java.sql.SQLException;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+     public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setTitle("OAC");
-        primaryStage.setScene(new Scene(root, 375, 450));
+        primaryStage.setScene(new Scene(root, 450, 525));
         primaryStage.show();
     }
 
