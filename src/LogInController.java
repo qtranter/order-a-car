@@ -8,12 +8,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Driver;
 import java.sql.SQLException;
 
 public class LogInController {
     private static final int RIDER_TYPE = 0;
     private static final int DRIVER_TYPE = 1;
-    public static int userID;
 
     @FXML
     private TextField loginUsername;
@@ -27,39 +27,39 @@ public class LogInController {
         databaseManager = new DatabaseManager();
     }
 
-    public void getUserID(String username, String password) throws SQLException {
-        userID = databaseManager.getUserID(username, password);
-    }
-
     public void handleLoginButton(javafx.event.ActionEvent actionEvent) throws IOException, SQLException {
         String userName = loginUsername.getText();
         String password = loginPassword.getText();
 
         if (databaseManager.userExists(userName, password)) {
             if (isDriver(userName, password)) {
-                getUserID(userName, password);
-                loginUser(actionEvent, "Driver.fxml");
+                loginDriver(actionEvent, userName, password);
             } else if (isRider(userName, password)) {
-                getUserID(userName, password);
-                loginUser(actionEvent, "Rider.fxml");
+                loginRider(actionEvent, userName, password);
             }
         } else {
             System.out.println("Login failed!");
         }
-        System.out.println(userName);
-        System.out.println(password);
+    }
+
+    private void loginDriver(ActionEvent actionEvent, String userName, String password) throws SQLException, IOException {
+        DriverController driverController = new DriverController(databaseManager.getUserID(userName, password));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Driver.fxml"));
+        loader.setController(driverController);
+        Scene userScene = new Scene(loader.load());
+        setScene(actionEvent, userScene);
+    }
+
+    private void loginRider(ActionEvent actionEvent, String userName, String password) throws SQLException, IOException {
+        RiderController riderController = new RiderController(databaseManager.getUserID(userName, password));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Rider.fxml"));
+        loader.setController(riderController);
+        Scene userScene = new Scene(loader.load());
+        setScene(actionEvent, userScene);
     }
 
     private boolean isDriver(String userName, String password) throws SQLException {
         return databaseManager.userType(userName, password) == DRIVER_TYPE;
-    }
-
-    private void loginUser(ActionEvent actionEvent, String scenePath) throws IOException {
-        System.out.println("Login Successful!");
-        Parent root = FXMLLoader.load(getClass().getResource(scenePath));
-        Scene driverScene = new Scene(root);
-
-        setScene(actionEvent, driverScene);
     }
 
     private void setScene(ActionEvent actionEvent, Scene nextScene) {

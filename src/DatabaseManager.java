@@ -20,7 +20,7 @@ public class DatabaseManager {
         int userID = -1;
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()) {
-            userID = rs.getInt("USER_TYPE");
+            userID = rs.getInt("ID");
         }
         return userID;
     }
@@ -63,7 +63,7 @@ public class DatabaseManager {
     }
 
     public String getCoins(int ID) throws SQLException {
-        String sql = "SELECT USERNAME FROM USER WHERE ID = ?";
+        String sql = "SELECT COINS FROM USER WHERE ID = ?";
         PreparedStatement preparedStatement = con.prepareStatement(sql);
         preparedStatement.setInt(1, ID);
 
@@ -85,7 +85,7 @@ public class DatabaseManager {
 
             PreparedStatement insertUser = con.prepareStatement(sql);
 
-            insertUser.setInt(1, 0);
+            insertUser.setString(1, null);
             insertUser.setString(2, first_name);
             insertUser.setString(3, last_name);
             insertUser.setString(4, username);

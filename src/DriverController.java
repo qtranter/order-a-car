@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class DriverController {
 
@@ -120,6 +121,13 @@ public class DriverController {
 
     @FXML
     private Label historyTipThree;
+
+    private int userID;
+    private DatabaseManager databaseManager = new DatabaseManager();
+
+    public DriverController(int userID) throws SQLException {
+        this.userID = userID;
+    }
 
     @FXML
     void changeName(ActionEvent event) {

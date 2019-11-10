@@ -19,13 +19,15 @@ public class RiderController implements Initializable {
 
     private DatabaseManager databaseManager;
 
+    private int userID;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            firstName.setText(databaseManager.getFirstName(LogInController.userID));
-            lastName.setText(databaseManager.getLastName(LogInController.userID));
-            userName.setText(databaseManager.getUserName(LogInController.userID));
-            coins.setText(databaseManager.getCoins(LogInController.userID));
+            firstName.setText(databaseManager.getFirstName(userID));
+            lastName.setText(databaseManager.getLastName(userID));
+            userName.setText(databaseManager.getUserName(userID));
+            coins.setText(databaseManager.getCoins(userID));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -34,4 +36,10 @@ public class RiderController implements Initializable {
     public RiderController() throws SQLException {
         databaseManager = new DatabaseManager();
     }
+
+    public RiderController(int userID) throws SQLException {
+        this.userID = userID;
+        this.databaseManager = new DatabaseManager();
+    }
+
 }
