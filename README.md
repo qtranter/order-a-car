@@ -35,7 +35,7 @@ CREATE TABLE RIDES (
 [Screen capture of our project thus far](https://www.youtube.com/watch?v=G10OfJIhees&feature=youtu.be)
 
 ## Video of GUI, prototype 2
-[Recording number two!](link)
+[Recording number two!](https://www.youtube.com/watch?v=lpXW4B7Cb5Y&feature=youtu.be)
 
 ## Changes since last prototype
 - RiderController added
