@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,7 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.h2.util.StringUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -189,7 +186,7 @@ public class RegistrationController implements Initializable {
 //            final Node source = (Node) event.getSource();
 //            final Stage stage = (Stage) source.getScene().getWindow();
 //            stage.close(); //closes the window
-            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
             Scene riderScene = new Scene(root);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -218,11 +215,12 @@ public class RegistrationController implements Initializable {
 
         }
         int coins = 100;
-        int userType = 0;
+        int userType;
+        int rating = 5;
         if (btnRider.isSelected()) {
             userType = 0; //number for now
             //insert a way to insert data for database here for Riders
-            databaseManager.insert(1, firstName, lastName, userType, userName, password);
+            databaseManager.insert(firstName, lastName, userName, password, rating, coins, userType);
         } else if (btnDriver.isSelected()) {
             userType = 1;//number for now
             databaseManager.insert(firstName, lastName, userName, password, rating, coins, userType); //need to add

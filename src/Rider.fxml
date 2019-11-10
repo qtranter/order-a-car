@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RiderController">
+  <tabs>
+    <Tab text="User Profile">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="47.0" layoutY="74.0" text="First Name:" />
+                  <Label layoutX="48.0" layoutY="122.0" text="Last Name:" />
+                  <Label layoutX="50.0" layoutY="169.0" text="Username:" />
+                  <Label layoutX="37.0" layoutY="215.0" text="Available Coins:" />
+                  <Label fx:id="firstName" layoutX="147.0" layoutY="74.0" />
+                  <Label fx:id="lastName" layoutX="147.0" layoutY="122.0" />
+                  <Label fx:id="userName" layoutX="147.0" layoutY="169.0" />
+                  <Label fx:id="coins" layoutX="147.0" layoutY="215.0" />
+               </children>
+            </AnchorPane>
+         </content></Tab>
+    <Tab text="Your Trips">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+         </content></Tab>
+      <Tab text="Order A Car!">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+      <Tab text="Settings">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

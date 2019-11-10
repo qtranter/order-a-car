@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +13,7 @@ import java.sql.SQLException;
 public class LogInController {
     private static final int RIDER_TYPE = 0;
     private static final int DRIVER_TYPE = 1;
+    public static int userID;
 
     @FXML
     private TextField loginUsername;
@@ -28,14 +27,20 @@ public class LogInController {
         databaseManager = new DatabaseManager();
     }
 
+    public void getUserID(String username, String password) throws SQLException {
+        userID = databaseManager.getUserID(username, password);
+    }
+
     public void handleLoginButton(javafx.event.ActionEvent actionEvent) throws IOException, SQLException {
         String userName = loginUsername.getText();
         String password = loginPassword.getText();
 
         if (databaseManager.userExists(userName, password)) {
             if (isDriver(userName, password)) {
+                getUserID(userName, password);
                 loginUser(actionEvent, "Driver.fxml");
             } else if (isRider(userName, password)) {
+                getUserID(userName, password);
                 loginUser(actionEvent, "Rider.fxml");
             }
         } else {
@@ -70,7 +75,7 @@ public class LogInController {
 
     public void handleSignInButton(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Registration.fxml"));
-        Scene signInScene = new Scene(root, 554, 600);
+        Scene signInScene = new Scene(root, 600, 386);
 
         setScene(actionEvent, signInScene);
     }
