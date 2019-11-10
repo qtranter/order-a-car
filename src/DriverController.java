@@ -1,17 +1,26 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class DriverController {
+public class DriverController implements Initializable {
 
 
     @FXML
@@ -130,17 +139,38 @@ public class DriverController {
     }
 
     @FXML
+    public TableView<Ride> tableview;
+    @FXML
+    public TableColumn<Ride, String> name;
+    @FXML
+    public TableColumn<Ride, String> pickup;
+    @FXML
+    public TableColumn<Ride, String> destination;
+    private ObservableList<Ride> data = FXCollections.observableArrayList();;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            System.out.println(databaseManager.getAvailableRides());
+            data.addAll(databaseManager.getAvailableRides());
+            name.setCellValueFactory(new PropertyValueFactory<>("name"));
+            pickup.setCellValueFactory(new PropertyValueFactory<>("pickupAddress"));
+            destination.setCellValueFactory(new PropertyValueFactory<>("destinationAddress"));
+            tableview.setItems(data);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void changeName(ActionEvent event) {
     }
 
     @FXML
     void handleLogOut(ActionEvent event) throws IOException {
-
             Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
             Scene logInScene = new Scene(root);
-
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
             window.setScene(logInScene);
             window.show();
         }

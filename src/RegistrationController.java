@@ -220,10 +220,10 @@ public class RegistrationController implements Initializable {
         if (btnRider.isSelected()) {
             userType = 0; //number for now
             //insert a way to insert data for database here for Riders
-            databaseManager.insert(firstName, lastName, userName, password, rating, coins, userType);
+            databaseManager.insertUser(firstName, lastName, userName, password, rating, coins, userType);
         } else if (btnDriver.isSelected()) {
             userType = 1;//number for now
-            databaseManager.insert(firstName, lastName, userName, password, rating, coins, userType); //need to add
+            databaseManager.insertUser(firstName, lastName, userName, password, rating, coins, userType); //need to add
             //more information(state,license,driver num, car make, car model, car year)
         }
         

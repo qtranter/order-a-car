@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<!--fx:controller="RiderController"-->
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="User Profile">
          <content>
@@ -28,7 +30,14 @@
          </content></Tab>
       <Tab text="Order A Car!">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="68.0" layoutY="87.0" text="Pickup Location:" />
+                  <Label layoutX="79.0" layoutY="139.0" text="Destination:" />
+                  <Button onAction="#orderCar" layoutX="73.0" layoutY="186.0" mnemonicParsing="false" text="Order a car" />
+                  <TextField fx:id="pickup" layoutX="164.0" layoutY="83.0" />
+                  <TextField fx:id="destination" layoutX="164.0" layoutY="135.0" />
+               </children></AnchorPane>
         </content>
       </Tab>
       <Tab text="Settings">

@@ -1,6 +1,8 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -16,10 +18,17 @@ public class RiderController implements Initializable {
     private Label userName;
     @FXML
     private Label coins;
+    @FXML
+    private TextField pickup;
+    @FXML
+    private TextField destination;
 
     private DatabaseManager databaseManager;
-
     private int userID;
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,4 +51,9 @@ public class RiderController implements Initializable {
         this.databaseManager = new DatabaseManager();
     }
 
+    public void orderCar(ActionEvent actionEvent) {
+        String pickupLocation = pickup.getText();
+        String dest = destination.getText();
+        databaseManager.insertRide(pickupLocation, dest);
+    }
 }

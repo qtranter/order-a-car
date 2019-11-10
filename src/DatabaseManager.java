@@ -1,6 +1,11 @@
 import com.sun.xml.internal.bind.v2.model.core.ID;
 
 import java.sql.*;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseManager {
     static final String JDBC_DRIVER = "org.h2.Driver";
@@ -79,7 +84,7 @@ public class DatabaseManager {
 
 
 
-    public void insert(String first_name, String last_name, String username, String password, int rating, float coins, int user_type) {
+    public void insertUser(String first_name, String last_name, String username, String password, int rating, float coins, int user_type) {
         try {
             String sql = "INSERT INTO USER VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -100,6 +105,26 @@ public class DatabaseManager {
         }
     }
 
+    public void insertRide(String pickup, String destination) {
+        try {
+            String sql = "INSERT INTO RIDES VALUES (?, ?, ?, ?, ?)";
+
+            PreparedStatement insertRide = con.prepareStatement(sql);
+
+            insertRide.setString(1, pickup);
+            insertRide.setString(2, destination);
+            insertRide.setDouble(3, 0.00);
+            DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+                    .withZone(ZoneId.systemDefault());
+            insertRide.setString(4, DATE_TIME_FORMATTER.format(Instant.now()));
+            insertRide.setBoolean(5, false);
+
+            insertRide.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     //Will only go to the next scene if the user has already created an account. This is the first step
     //in determining which scene to send the user
     public boolean userExists(String userName, String password) {
@@ -113,7 +138,6 @@ public class DatabaseManager {
             if (resultSet.next()) {
                 return true;
             }
-
 
         } catch (SQLException e) {
             // print SQL exception information
@@ -138,5 +162,24 @@ public class DatabaseManager {
 
     public void sqlExceptionHandler(SQLException error) {
         System.out.println("Standard Failure: " + error.getMessage());
+    }
+
+    public List<Ride> getAvailableRides() throws SQLException {
+        List<Ride> rides = new ArrayList<>();
+        String sql = "SELECT NAME, PICKUP_ADDRESS, DESTINATION_ADDRESS, COST, DATE FROM RIDES WHERE COMPLETED = ?";
+        PreparedStatement preparedStatement = con.prepareStatement(sql);
+        preparedStatement.setBoolean(1, false);
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            Ride ride = new Ride(
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getDouble(4),
+                    rs.getString(5)
+            );
+            rides.add(ride);
+        }
+        return rides;
     }
 }
