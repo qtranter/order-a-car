@@ -23,17 +23,17 @@ import java.util.ResourceBundle;
 public class DriverController implements Initializable {
 
 
-    @FXML
-    private Label nameLabel;
 
     @FXML
-    private Label phoneLabel;
-
+    private Label firstName;
     @FXML
-    private Label creditCardLabel;
-
+    private Label lastName;
     @FXML
-    private Label profileRatings;
+    private Label userName;
+    @FXML
+    private Label coins;
+    @FXML
+    private Label rating;
 
     @FXML
     private Label totalOAC;
@@ -151,7 +151,13 @@ public class DriverController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            System.out.println(databaseManager.getAvailableRides());
+            //System.out.println(databaseManager.getAvailableRides());
+            firstName.setText(databaseManager.getFirstName(userID));
+            lastName.setText(databaseManager.getLastName(userID));
+            userName.setText(databaseManager.getUserName(userID));
+            coins.setText(databaseManager.getCoins(userID));
+            rating.setText(databaseManager.getRating(userID));
+
             data.addAll(databaseManager.getAvailableRides());
             name.setCellValueFactory(new PropertyValueFactory<>("name"));
             pickup.setCellValueFactory(new PropertyValueFactory<>("pickupAddress"));

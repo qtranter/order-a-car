@@ -1,8 +1,13 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -22,6 +27,17 @@ public class RiderController implements Initializable {
     private TextField pickup;
     @FXML
     private TextField destination;
+    @FXML
+    public TableView<Ride> tableview;
+    @FXML
+    public TableColumn<Ride, String> pickupColumn;
+    @FXML
+    public TableColumn<Ride, String> destinationColumn;
+    @FXML
+    public TableColumn<Ride, Double> costColumn;
+    @FXML
+    public TableColumn<Ride, String> dateColumn;
+    private ObservableList<Ride> data = FXCollections.observableArrayList();;
 
     private DatabaseManager databaseManager;
     private int userID;
@@ -37,6 +53,13 @@ public class RiderController implements Initializable {
             lastName.setText(databaseManager.getLastName(userID));
             userName.setText(databaseManager.getUserName(userID));
             coins.setText(databaseManager.getCoins(userID));
+
+            data.addAll(databaseManager.getRides(userID));
+            pickupColumn.setCellValueFactory(new PropertyValueFactory<>("pickupAddress"));
+            destinationColumn.setCellValueFactory(new PropertyValueFactory<>("destinationAddress"));
+            costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
+            dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+            tableview.setItems(data);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,6 +77,6 @@ public class RiderController implements Initializable {
     public void orderCar(ActionEvent actionEvent) {
         String pickupLocation = pickup.getText();
         String dest = destination.getText();
-        databaseManager.insertRide(pickupLocation, dest);
+        databaseManager.insertRide(userID, pickupLocation, dest);
     }
 }

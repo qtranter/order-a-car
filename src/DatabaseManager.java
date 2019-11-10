@@ -82,6 +82,21 @@ public class DatabaseManager {
         return coinString;
     }
 
+    public String getRating(int ID) throws SQLException {
+        String sql = "SELECT RATING FROM USER WHERE ID = ?";
+        PreparedStatement preparedStatement = con.prepareStatement(sql);
+        preparedStatement.setInt(1, ID);
+
+        int rating = -1;
+        String ratingString;
+        ResultSet rs = preparedStatement.executeQuery();
+        while(rs.next()) {
+            rating = rs.getInt("RATING");
+        }
+        ratingString = rating+"";
+        return ratingString;
+    }
+
 
 
     public void insertUser(String first_name, String last_name, String username, String password, int rating, float coins, int user_type) {
@@ -105,19 +120,20 @@ public class DatabaseManager {
         }
     }
 
-    public void insertRide(String pickup, String destination) {
+    public void insertRide(int userID, String pickup, String destination) {
         try {
-            String sql = "INSERT INTO RIDES VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO RIDES VALUES (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement insertRide = con.prepareStatement(sql);
 
-            insertRide.setString(1, pickup);
-            insertRide.setString(2, destination);
-            insertRide.setDouble(3, 0.00);
+            insertRide.setInt(1, userID);
+            insertRide.setString(2, pickup);
+            insertRide.setString(3, destination);
+            insertRide.setDouble(4, 0.00);
             DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
                     .withZone(ZoneId.systemDefault());
-            insertRide.setString(4, DATE_TIME_FORMATTER.format(Instant.now()));
-            insertRide.setBoolean(5, false);
+            insertRide.setString(5, DATE_TIME_FORMATTER.format(Instant.now()));
+            insertRide.setBoolean(6, false);
 
             insertRide.execute();
         } catch (SQLException e) {
@@ -169,6 +185,25 @@ public class DatabaseManager {
         String sql = "SELECT NAME, PICKUP_ADDRESS, DESTINATION_ADDRESS, COST, DATE FROM RIDES WHERE COMPLETED = ?";
         PreparedStatement preparedStatement = con.prepareStatement(sql);
         preparedStatement.setBoolean(1, false);
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            Ride ride = new Ride(
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getDouble(4),
+                    rs.getString(5)
+            );
+            rides.add(ride);
+        }
+        return rides;
+    }
+
+    public List<Ride> getRides(int userID) throws SQLException {
+        List<Ride> rides = new ArrayList<>();
+        String sql = "SELECT NAME, PICKUP_ADDRESS, DESTINATION_ADDRESS, COST, DATE FROM RIDES WHERE USER_ID = ?";
+        PreparedStatement preparedStatement = con.prepareStatement(sql);
+        preparedStatement.setInt(1, userID);
         ResultSet rs = preparedStatement.executeQuery();
         while (rs.next()) {
             Ride ride = new Ride(
