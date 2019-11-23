@@ -9,8 +9,10 @@ import java.util.List;
 
 public class DatabaseManager {
     static final String JDBC_DRIVER = "org.h2.Driver";
-    static final String DB_URL = "jdbc:h2:D:/trant/Documents/Java Practice/Order A Car2/res/userDatabase";
+    static final String DB_URL = "jdbc:h2:C:/Users/kharn/IdeaProjects/order-a-car/res/userDatabase";
     private Connection con;
+
+    //URL: jdbc:h2:C:/Users/kharn/IdeaProjects/order-a-car/res/userDatabase
 
     public DatabaseManager() throws SQLException {
         con = DriverManager.getConnection(DB_URL, "sa", "");
