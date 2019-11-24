@@ -90,7 +90,7 @@ public class DriverController implements Initializable {
 
     @FXML
     void selectTrip(MouseEvent event) {
-        if (event.getClickCount() == 1) {
+        if (event.getClickCount() == 2) {
             // tableview.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
             System.out.println ("Trip Selected: " + tableview.getSelectionModel().getSelectedItem().getName() );
         }
