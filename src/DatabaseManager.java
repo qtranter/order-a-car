@@ -1,5 +1,3 @@
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
 import java.sql.*;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -120,20 +118,21 @@ public class DatabaseManager {
         }
     }
 
-    public void insertRide(int userID, String pickup, String destination) {
+    public void insertRide(int userID, String pickup, String destination, String name) {
         try {
-            String sql = "INSERT INTO RIDES VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO RIDES VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement insertRide = con.prepareStatement(sql);
 
             insertRide.setInt(1, userID);
-            insertRide.setString(2, pickup);
-            insertRide.setString(3, destination);
-            insertRide.setDouble(4, 0.00);
-            DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+            insertRide.setString(2, name);
+            insertRide.setString(3, pickup);
+            insertRide.setString(4, destination);
+            insertRide.setDouble(5, 0.00);
+            DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("MM-dd HH:mm")
                     .withZone(ZoneId.systemDefault());
-            insertRide.setString(5, DATE_TIME_FORMATTER.format(Instant.now()));
-            insertRide.setBoolean(6, false);
+            insertRide.setString(6, DATE_TIME_FORMATTER.format(Instant.now()));
+            insertRide.setBoolean(7, false);
 
             insertRide.execute();
         } catch (SQLException e) {
@@ -141,8 +140,6 @@ public class DatabaseManager {
         }
     }
 
-    //Will only go to the next scene if the user has already created an account. This is the first step
-    //in determining which scene to send the user
     public boolean userExists(String userName, String password) {
         try {
             String sql = "SELECT * FROM USER WHERE USERNAME = ? and PASSWORD = ?";
