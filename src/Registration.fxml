@@ -10,186 +10,190 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="RegistrationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegistrationController">
     <children>
         <Label layoutX="242.0" layoutY="14.0" text="Registration" underline="true">
             <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
             </font>
         </Label>
         <Label layoutX="131.0" layoutY="56.0" prefHeight="21.0" prefWidth="160.0" text="Name ">
             <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Label>
         <Label layoutX="131.0" layoutY="77.0" prefHeight="21.0" prefWidth="160.0" text="User Name">
             <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Label>
         <Label layoutX="131.0" layoutY="98.0" prefHeight="21.0" prefWidth="160.0" text="Password">
             <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Label>
         <Label layoutX="131.0" layoutY="119.0" text="Confirm Password">
             <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Label>
         <Label layoutX="131.0" layoutY="140.0" prefHeight="21.0" prefWidth="160.0" text="User Type">
             <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="txtFirstName" accessibleText="First Name" layoutX="306.0" layoutY="56.0" prefHeight="21.0"
-                   prefWidth="71.0" promptText="First Name">
+        <TextField fx:id="txtFirstName" accessibleText="First Name" layoutX="306.0" layoutY="56.0" prefHeight="21.0" prefWidth="71.0" promptText="First Name">
             <font>
-                <Font size="8.0"/>
+                <Font size="8.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtUserName" layoutX="306.0" layoutY="77.0" prefHeight="21.0" prefWidth="149.0"
-                   promptText="User Name">
+        <TextField fx:id="txtUserName" layoutX="306.0" layoutY="77.0" prefHeight="21.0" prefWidth="149.0" promptText="User Name">
             <font>
-                <Font size="8.0"/>
+                <Font size="8.0" />
             </font>
         </TextField>
-        <PasswordField fx:id="passMain" layoutX="306.0" layoutY="98.0" prefHeight="21.0" prefWidth="149.0"
-                       promptText="Password">
+        <PasswordField fx:id="passMain" layoutX="306.0" layoutY="98.0" onInputMethodTextChanged="#checkPasswordMatch" onKeyPressed="#checkPasswordMatch" onKeyReleased="#checkPasswordMatch" prefHeight="21.0" prefWidth="149.0" promptText="Password">
             <font>
-                <Font size="8.0"/>
+                <Font size="8.0" />
             </font>
         </PasswordField>
-        <PasswordField fx:id="passConfirm" layoutX="306.0" layoutY="119.0" onKeyReleased="#checkPasswordMatch"
-                       prefHeight="21.0" prefWidth="149.0" promptText="Password">
+        <PasswordField fx:id="passConfirm" layoutX="306.0" layoutY="119.0" onKeyReleased="#checkPasswordMatch" prefHeight="21.0" prefWidth="149.0" promptText="Password">
             <font>
-                <Font size="8.0"/>
+                <Font size="8.0" />
             </font>
         </PasswordField>
-        <RadioButton fx:id="btnDriver" layoutX="306.0" layoutY="142.0" mnemonicParsing="false"
-                     onAction="#enableCarInfoSection" text="Driver"/>
-        <RadioButton fx:id="btnRider" layoutX="406.0" layoutY="142.0" mnemonicParsing="false"
-                     onAction="#enableCarInfoSection" text="Rider"/>
-        <Label fx:id="txtPasswordNotMatch" layoutX="456.0" layoutY="121.0" text="Passwords Must Match"
-               textFill="#ff0009" visible="false">
+        <RadioButton fx:id="btnDriver" layoutX="306.0" layoutY="142.0" mnemonicParsing="false" onAction="#enableCarInfoSection" text="Driver" />
+        <RadioButton fx:id="btnRider" layoutX="406.0" layoutY="142.0" mnemonicParsing="false" onAction="#enableCarInfoSection" text="Rider" />
+        <Label fx:id="txtPasswordNotMatch" layoutX="456.0" layoutY="121.0" text="Passwords Must Match" textFill="#ff0009" visible="false">
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="System Bold" size="12.0" />
             </font>
             <effect>
-                <Glow/>
+                <Glow />
             </effect>
         </Label>
-        <Button fx:id="btnSubmit" layoutX="273.0" layoutY="309.0" mnemonicParsing="false" onAction="#submitForm"
-                text="Submit"/>
-        <AnchorPane fx:id="areaDriver" disable="true" layoutX="150.0" layoutY="161.0" prefHeight="148.0"
-                    prefWidth="428.0">
+        <Button fx:id="btnSubmit" layoutX="273.0" layoutY="309.0" mnemonicParsing="false" onAction="#submitForm" text="Submit" />
+        <AnchorPane fx:id="areaDriver" disable="true" layoutX="150.0" layoutY="161.0" prefHeight="148.0" prefWidth="428.0">
             <children>
                 <Label layoutX="72.0" layoutY="-1.0" text="Car Information" underline="true">
                     <font>
-                        <Font size="20.0"/>
+                        <Font size="20.0" />
                     </font>
                 </Label>
                 <Label layoutX="51.0" layoutY="24.0" text="Make">
                     <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                     </font>
                 </Label>
                 <Label layoutX="48.0" layoutY="41.0" text="Model">
                     <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                     </font>
                 </Label>
                 <Label layoutX="55.0" layoutY="64.0" text="Year">
                     <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                     </font>
                 </Label>
                 <Label layoutX="30.0" layoutY="86.0" text="License Plate">
                     <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                     </font>
                 </Label>
                 <Label layoutX="25.0" layoutY="101.0" text="Driver License ">
                     <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                     </font>
                 </Label>
                 <Label layoutX="53.0" layoutY="124.0" text="State">
                     <font>
-                        <Font size="15.0"/>
+                        <Font size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtDriverNum" layoutX="120.0" layoutY="103.0" onKeyReleased="#checkDriverNum"
-                           prefHeight="17.0" prefWidth="149.0" promptText="Driver License Number">
+                <TextField fx:id="txtDriverNum" layoutX="120.0" layoutY="103.0" onKeyReleased="#checkDriverNum" prefHeight="17.0" prefWidth="149.0" promptText="Driver License Number">
                     <font>
-                        <Font size="8.0"/>
+                        <Font size="8.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtLicensePlate" layoutX="120.0" layoutY="87.0" onKeyReleased="#checkLicensePlate"
-                           prefHeight="17.0" prefWidth="149.0" promptText="License Plate Number">
+                <TextField fx:id="txtLicensePlate" layoutX="120.0" layoutY="87.0" onKeyReleased="#checkLicensePlate" prefHeight="17.0" prefWidth="149.0" promptText="License Plate Number">
                     <font>
-                        <Font size="8.0"/>
+                        <Font size="8.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtModel" layoutX="120.0" layoutY="42.0" prefHeight="17.0" prefWidth="149.0"
-                           promptText="Model of Your Car">
+                <TextField fx:id="txtModel" layoutX="120.0" layoutY="42.0" prefHeight="17.0" prefWidth="149.0" promptText="Model of Your Car">
                     <font>
-                        <Font size="8.0"/>
+                        <Font size="8.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="txtMake" layoutX="120.0" layoutY="25.0" prefHeight="17.0" prefWidth="149.0"
-                           promptText="Make of Your Car">
+                <TextField fx:id="txtMake" layoutX="120.0" layoutY="25.0" prefHeight="17.0" prefWidth="149.0" promptText="Make of Your Car">
                     <font>
-                        <Font size="8.0"/>
+                        <Font size="8.0" />
                     </font>
                 </TextField>
-                <ComboBox fx:id="chcStateCar" layoutX="117.0" layoutY="122.0" prefHeight="25.0" prefWidth="62.0"/>
-                <ComboBox fx:id="chcYear" layoutX="122.0" layoutY="61.0" prefHeight="25.0" prefWidth="85.0"/>
-                <Label fx:id="txtDriverNumValid" layoutX="288.0" layoutY="103.0" text="Enter valid Driver license"
-                       textFill="#ff0009" visible="false">
+                <ComboBox fx:id="chcStateCar" layoutX="117.0" layoutY="122.0" prefHeight="25.0" prefWidth="62.0" />
+                <ComboBox fx:id="chcYear" layoutX="122.0" layoutY="61.0" prefHeight="25.0" prefWidth="85.0" />
+                <Label fx:id="txtDriverNumValid" layoutX="288.0" layoutY="103.0" text="Enter valid Driver license" textFill="#ff0009" visible="false">
                     <font>
-                        <Font name="System Bold" size="12.0"/>
+                        <Font name="System Bold" size="12.0" />
                     </font>
                     <effect>
-                        <Glow/>
+                        <Glow />
                     </effect>
                 </Label>
-                <Label fx:id="txtLicensePlateValid" layoutX="288.0" layoutY="88.0" text="Enter valid license plate"
-                       textFill="#ff0009" visible="false">
+                <Label fx:id="txtLicensePlateValid" layoutX="288.0" layoutY="88.0" text="Enter valid license plate" textFill="#ff0009" visible="false">
                     <font>
-                        <Font name="System Bold" size="12.0"/>
+                        <Font name="System Bold" size="12.0" />
                     </font>
                     <effect>
-                        <Glow/>
+                        <Glow />
                     </effect>
                 </Label>
             </children>
         </AnchorPane>
-        <Label fx:id="txtMissingItems" layoutX="329.0" layoutY="280.0" prefHeight="83.0" prefWidth="254.0"
-               text="Make Sure All Fields Are Complete" textFill="#ff0101" visible="false" wrapText="true">
+        <Label fx:id="txtMissingItems" layoutX="329.0" layoutY="280.0" prefHeight="83.0" prefWidth="254.0" text="Make Sure All Fields Are Complete" textFill="#ff0101" visible="false" wrapText="true">
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="System Bold" size="12.0" />
             </font>
             <effect>
-                <Glow/>
+                <Glow />
             </effect>
         </Label>
-        <TextField fx:id="txtLastName" accessibleText="First Name" layoutX="384.0" layoutY="56.0" prefHeight="21.0"
-                   prefWidth="71.0" promptText="Last Name">
+        <TextField fx:id="txtLastName" accessibleText="First Name" layoutX="384.0" layoutY="56.0" prefHeight="21.0" prefWidth="71.0" promptText="Last Name">
             <font>
-                <Font size="8.0"/>
+                <Font size="8.0" />
             </font>
         </TextField>
-        <Label fx:id="txtOnlyOneUserType" layoutX="461.0" layoutY="142.0" prefHeight="35.0" prefWidth="139.0"
-               text="Select only one User Type" textFill="#ff0101" visible="false" wrapText="true">
+        <Label fx:id="txtOnlyOneUserType" layoutX="461.0" layoutY="142.0" prefHeight="35.0" prefWidth="139.0" text="Select only one User Type" textFill="#ff0101" visible="false" wrapText="true">
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="System Bold" size="12.0" />
             </font>
             <effect>
-                <Glow/>
+                <Glow />
             </effect>
         </Label>
+      <AnchorPane fx:id="areaInclude" layoutX="438.0" layoutY="47.0" prefHeight="81.0" prefWidth="166.0" visible="false">
+         <children>
+            <Label fx:id="txtMustMatch1" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="6.0" prefHeight="17.0" prefWidth="144.0" text="Passwords must include:" textFill="RED" wrapText="true">
+               <effect>
+                  <Glow level="1.0" />
+               </effect>
+            </Label>
+            <Label fx:id="txtMustMatch11" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="16.0" layoutY="23.0" prefHeight="17.0" prefWidth="144.0" text="1 Special Character" textFill="RED" wrapText="true">
+               <effect>
+                  <Glow level="1.0" />
+               </effect>
+            </Label>
+            <Label fx:id="txtMustMatch12" contentDisplay="CENTER" layoutX="16.0" layoutY="40.0" prefHeight="17.0" prefWidth="144.0" text="1 Uppercase Letter" textFill="RED" wrapText="true">
+               <effect>
+                  <Glow level="1.0" />
+               </effect>
+            </Label>
+            <Label fx:id="txtMustMatch13" contentDisplay="CENTER" layoutX="16.0" layoutY="57.0" prefHeight="17.0" prefWidth="144.0" text="1 Lowercase Letter" textFill="RED" wrapText="true">
+               <effect>
+                  <Glow level="1.0" />
+               </effect>
+            </Label>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
