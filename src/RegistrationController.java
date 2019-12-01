@@ -1,3 +1,5 @@
+package sample;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +18,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegistrationController implements Initializable {
     private DatabaseManager databaseManager;
@@ -26,6 +30,9 @@ public class RegistrationController implements Initializable {
 
     @FXML
     private TextField txtFirstName;
+
+    @FXML
+    private AnchorPane areaInclude;
 
     @FXML
     private TextField txtLastName;
@@ -106,6 +113,17 @@ public class RegistrationController implements Initializable {
         }
     }
 
+    public boolean isValidPassword(String password) {
+        Pattern patternSpecialChar = Pattern.compile("[^A-Za-z0-9]");
+        Pattern patternUpperCase = Pattern.compile("[A-Z]");
+        Pattern patternLowerCase = Pattern.compile("[a-z]");
+        Matcher matcherSpecialChar = patternSpecialChar.matcher(password);
+        Matcher matcherUpperCase = patternUpperCase.matcher(password);
+        Matcher matcherLowerCase = patternLowerCase.matcher(password);
+
+        return matcherSpecialChar.find() && matcherLowerCase.find() && matcherUpperCase.find();
+    }
+
 
     @FXML
     void checkPasswordMatch(KeyEvent event) {
@@ -113,6 +131,11 @@ public class RegistrationController implements Initializable {
             txtPasswordNotMatch.setVisible(false);
         } else {
             txtPasswordNotMatch.setVisible(true);
+        }
+        if (isValidPassword(passMain.getText())) {
+            areaInclude.setVisible(false);
+        } else {
+            areaInclude.setVisible(true);
         }
     }
 
@@ -161,7 +184,7 @@ public class RegistrationController implements Initializable {
             }
         }
         if (txtPasswordNotMatch.isVisible() || txtOnlyOneUserType.isVisible() || txtLicensePlateValid.isVisible()
-                || txtDriverNumValid.isVisible()) {
+                || txtDriverNumValid.isVisible() || areaInclude.isVisible()) {
             finishRegistration = false;
         }
         if (chcYear.getSelectionModel().getSelectedItem() == null && btnDriver.isSelected()) {
@@ -183,16 +206,19 @@ public class RegistrationController implements Initializable {
         if (finishRegistration) {
             txtMissingItems.setVisible(false);
             completeRegistration();
-//            final Node source = (Node) event.getSource();
-//            final Stage stage = (Stage) source.getScene().getWindow();
-//            stage.close(); //closes the window
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+
+            //final Node source = (Node) event.getSource();
+            //final Stage stage = (Stage) source.getScene().getWindow();
+            //stage.close(); //closes the window
+
+            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
             Scene riderScene = new Scene(root);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(riderScene);
             window.show();
+
         } else {
             txtMissingItems.setText(output);
             txtMissingItems.setVisible(true);
@@ -214,19 +240,16 @@ public class RegistrationController implements Initializable {
         } catch (Exception e) {
 
         }
-        int coins = 100;
-        int userType;
-        int rating = 5;
+        int OakCoins = 100;
+        int userType = 0;
         if (btnRider.isSelected()) {
-            userType = 0; //number for now
+            userType = 0;
             //insert a way to insert data for database here for Riders
-            databaseManager.insertUser(firstName, lastName, userName, password, rating, coins, userType);
         } else if (btnDriver.isSelected()) {
-            userType = 1;//number for now
-            databaseManager.insertUser(firstName, lastName, userName, password, rating, coins, userType); //need to add
-            //more information(state,license,driver num, car make, car model, car year)
+            userType = 1;
+            //insert a way to insert data for database here for drivers
         }
-        
+        databaseManager.insert(1, firstName, lastName, userType, userName, password);
 
     }
 
