@@ -1,4 +1,4 @@
-package sample;
+
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -240,8 +240,9 @@ public class RegistrationController implements Initializable {
         } catch (Exception e) {
 
         }
-        int OakCoins = 100;
+        int oakCoins = 100;
         int userType = 0;
+        int rating = 5;
         if (btnRider.isSelected()) {
             userType = 0;
             //insert a way to insert data for database here for Riders
@@ -249,8 +250,7 @@ public class RegistrationController implements Initializable {
             userType = 1;
             //insert a way to insert data for database here for drivers
         }
-        databaseManager.insert(1, firstName, lastName, userType, userName, password);
-
+        databaseManager.insertUser(firstName, lastName, userName, password, rating, oakCoins, userType);
     }
 
     public void initialize(URL url, ResourceBundle resource) {
