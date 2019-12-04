@@ -51,8 +51,8 @@ public class LogInController {
     }
 
     private void loginRider(ActionEvent actionEvent, String userName, String password) throws SQLException, IOException {
-        RiderController riderController = new RiderController(databaseManager.getUserID(userName, password));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Rider.fxml"));
+        RiderProfileController riderController = new RiderProfileController(databaseManager.getUserID(userName, password));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("riderProfile.fxml"));
         loader.setController(riderController);
         Scene userScene = new Scene(loader.load());
         setScene(actionEvent, userScene);
