@@ -1,3 +1,28 @@
 .root {
     -fx-background-image: url("https://i.imgur.com/LezpIyL.jpg");
 }
+.tool-bar {
+    -fx-spacing: 10px;
+}
+.Register {
+    -fx-background-size: 850px;
+    -fx-font-weight: bold;
+}
+
+.Driver {
+    -fx-background-image: url("https://support.content.office.net/en-us/media/d642c033-854b-445e-8d74-626d071db04c.jpg");
+    -fx-background-size: 850px;
+    -fx-font-weight: bold;
+}
+.tab{
+    -fx-border-color: dimgray;
+    -fx-background-color: lightgrey;
+    -fx-font-weight: bold;
+    -fx-border-radius: 8px;
+}
+.Rider {
+    -fx-background-image: url("https://support.content.office.net/en-us/media/d642c033-854b-445e-8d74-626d071db04c.jpg");
+    -fx-background-size: 850px;
+    -fx-font-weight: bold;
+}
+
