@@ -1,5 +1,3 @@
-package rider;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -103,8 +101,7 @@ public class RiderProfileController implements Initializable {
     }
 
     private int userID;
-    private DatabaseManager databaseManager; = new DatabaseManager();
-    private DatabaseManager databaseManager;
+    private DatabaseManager databaseManager = new DatabaseManager();
 
     public RiderProfileController(int userID) throws SQLException {
         this.userID = userID;
@@ -137,16 +134,16 @@ public class RiderProfileController implements Initializable {
         RiderRatingLabel.setText(databaseManager.getRating(userID));
 
         if(imagepath != null) {
-            Image databaseManager.getImage(userID) = new Image(imagepath);
-            RiderProfileImage.setImage(databaseManager.getImage(userID));
+//            Image databaseManager.getImage(userID) = new Image(imagepath);
+//            RiderProfileImage.setImage(databaseManager.getImage(userID));
 
-            data.addAll(databaseManager.getRides(userID));
+            data.addAll((RideHistory) databaseManager.getRides(userID));
             pickupColumn.setCellValueFactory(new PropertyValueFactory<>("pickupAddress"));
             destinationColumn.setCellValueFactory(new PropertyValueFactory<>("destinationAddress"));
             costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
             dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
             nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-            tableview.setItems(data);
+            historyTable.setItems(data);
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -181,11 +178,11 @@ public class RiderProfileController implements Initializable {
 //        PrefDestStreetAddressTextField.setText("bb");
 //        PrefDestCityTextField.setText("cc");
 
-        PrefStateDropBox.setValue(databaseManager.getPrefState(userID));
-        PrefDestStateDropBox.setValue(databaseManager.getPrefDest(userID));
-        PrefVehicleTypeDropBox.setValue(databaseManager.getPrefVehicleType(userID));
-        PrefVehicleCapacityDropBox.setValue(databaseManager.getPrefVehicleCapacity(userID));
-        PrefDriverRatingDropBox.setValue(databaseManager.getPrefDriverRating(userID));
+//        PrefStateDropBox.setValue(databaseManager.getPrefState(userID));
+//        PrefDestStateDropBox.setValue(databaseManager.getPrefDest(userID));
+//        PrefVehicleTypeDropBox.setValue(databaseManager.getPrefVehicleType(userID));
+//        PrefVehicleCapacityDropBox.setValue(databaseManager.getPrefVehicleCapacity(userID));
+//        PrefDriverRatingDropBox.setValue(databaseManager.getPrefDriverRating(userID));
 
     }
 

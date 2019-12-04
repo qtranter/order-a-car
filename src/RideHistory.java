@@ -1,5 +1,3 @@
-package rider;
-
 public class RideHistory {
     private String name;
     private String pickupAddress;

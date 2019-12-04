@@ -1,5 +1,3 @@
-package rider;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,11 +9,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("riderProfile.fxml"));
+        loader.setLocation(getClass().getResource("Login.fxml"));
         Parent root = loader.load();
         loader.getController();
 
-//        Parent root = FXMLLoader.load(getClass().getResource("riderProfile.fxml"));
         primaryStage.setScene(new Scene(root, 600, 700));
         primaryStage.show();
     }
