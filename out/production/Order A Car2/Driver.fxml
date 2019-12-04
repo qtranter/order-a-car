@@ -32,7 +32,7 @@
 <!--                    <Button fx:id="btnEditName" layoutX="228.0" layoutY="24.0" mnemonicParsing="false" onAction="#changeName" text="Edit" />-->
 <!--                    <Button fx:id="btnEditPhone" layoutX="228.0" layoutY="70.0" mnemonicParsing="false" text="Edit" />-->
 <!--                    <Button fx:id="btnEditCreditCard" layoutX="228.0" layoutY="118.0" mnemonicParsing="false" text="Edit" />-->
-<!--                    <Button fx:id="btnLogOut" layoutX="399.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleLogOut" text="Log Out" />-->
+                    <Button fx:id="btnLogOut" layoutX="399.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleLogOut" text="Log Out" />
                 </children>
             </AnchorPane>
         </content></Tab>

@@ -11,10 +11,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("test.fxml"));
+        loader.setLocation(getClass().getResource("Login.fxml"));
         Parent root = loader.load();
         loader.getController();
-        primaryStage.getIcons().add(new Image("https://i.imgur.com/HRn7QCk.png"));
+        primaryStage.getIcons().add(new Image("https://i.imgur.com/hC8D0oo.png"));
+        primaryStage.setTitle("OAK");
         primaryStage.setScene(new Scene(root, 450, 525));
         primaryStage.show();
     }
