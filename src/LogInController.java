@@ -49,15 +49,9 @@ public class LogInController {
         setScene(actionEvent, userScene);
     }
 
-<<<<<<< HEAD
-    private void loginRider(ActionEvent actionEvent, String userName, String password) throws SQLException, IOException {
-        RiderProfileController riderController = new RiderProfileController(databaseManager.getUserID(userName, password));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("riderProfile.fxml"));
-=======
     private void loginRider(ActionEvent actionEvent, String userName, String password) throws SQLException, IOException, ClassNotFoundException {
         RiderProfileController riderController = new RiderProfileController(databaseManager.getUserID(userName, password));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("RiderProfile.fxml"));
->>>>>>> blake's-rider-branch
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("riderProfile.fxml"));
         loader.setController(riderController);
         Scene userScene = new Scene(loader.load());
         setScene(actionEvent, userScene);
