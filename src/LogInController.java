@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Driver;
 import java.sql.SQLException;
 
 public class LogInController {
@@ -27,7 +26,7 @@ public class LogInController {
         databaseManager = new DatabaseManager();
     }
 
-    public void handleLoginButton(javafx.event.ActionEvent actionEvent) throws IOException, SQLException {
+    public void handleLoginButton(javafx.event.ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
         String userName = loginUsername.getText();
         String password = loginPassword.getText();
 
@@ -50,9 +49,9 @@ public class LogInController {
         setScene(actionEvent, userScene);
     }
 
-    private void loginRider(ActionEvent actionEvent, String userName, String password) throws SQLException, IOException {
-        RiderController riderController = new RiderController(databaseManager.getUserID(userName, password));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Rider.fxml"));
+    private void loginRider(ActionEvent actionEvent, String userName, String password) throws SQLException, IOException, ClassNotFoundException {
+        RiderProfileController riderController = new RiderProfileController(databaseManager.getUserID(userName, password));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RiderProfile.fxml"));
         loader.setController(riderController);
         Scene userScene = new Scene(loader.load());
         setScene(actionEvent, userScene);
