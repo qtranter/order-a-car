@@ -1,3 +1,5 @@
+# Team 6 
+Group members: Leemarie Collet, John Marx, Karan Patel, Blake Smith, and Quaide Trainter 
 # Order A Car
 
 Order A Car now has the vast majority of its functionality completed. The essentials of the program have been completed and most of the back-end logic has been written.
