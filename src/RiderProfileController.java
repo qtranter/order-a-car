@@ -127,23 +127,23 @@ public class RiderProfileController implements Initializable {
 //        RiderRatingLabel.setText("5.0");
 
         try {
-        firstName.setText(databaseManager.getFirstName(userID));
-        lastName.setText(databaseManager.getLastName(userID));
-        userName.setText(databaseManager.getUserName(userID));
-        RiderCoinsLabel.setText(databaseManager.getCoins(userID));
-        RiderRatingLabel.setText(databaseManager.getRating(userID));
+            firstName.setText(databaseManager.getFirstName(userID));
+            lastName.setText(databaseManager.getLastName(userID));
+            userName.setText(databaseManager.getUserName(userID));
+            RiderCoinsLabel.setText(databaseManager.getCoins(userID));
+            RiderRatingLabel.setText(databaseManager.getRating(userID));
 
-        if(imagepath != null) {
+            if(imagepath != null) {
 //            Image databaseManager.getImage(userID) = new Image(imagepath);
 //            RiderProfileImage.setImage(databaseManager.getImage(userID));
 
-            data.addAll((RideHistory) databaseManager.getRides(userID));
-            pickupColumn.setCellValueFactory(new PropertyValueFactory<>("pickupAddress"));
-            destinationColumn.setCellValueFactory(new PropertyValueFactory<>("destinationAddress"));
-            costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
-            dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-            nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-            historyTable.setItems(data);
+                data.addAll((RideHistory) databaseManager.getRides(userID));
+                pickupColumn.setCellValueFactory(new PropertyValueFactory<>("pickupAddress"));
+                destinationColumn.setCellValueFactory(new PropertyValueFactory<>("destinationAddress"));
+                costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
+                dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+                nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+                historyTable.setItems(data);
             }
         }catch (SQLException e){
             e.printStackTrace();

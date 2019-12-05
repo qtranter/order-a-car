@@ -2,7 +2,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
 
 public class Main extends Application {
 
@@ -12,8 +14,9 @@ public class Main extends Application {
         loader.setLocation(getClass().getResource("Login.fxml"));
         Parent root = loader.load();
         loader.getController();
-
-        primaryStage.setScene(new Scene(root, 600, 700));
+        primaryStage.getIcons().add(new Image("https://i.imgur.com/hC8D0oo.png"));
+        primaryStage.setTitle("OAK");
+        primaryStage.setScene(new Scene(root, 450, 525));
         primaryStage.show();
     }
 
