@@ -75,4 +75,6 @@ CREATE TABLE RIDES (
 *	User may schedule ride
 *	User may select rated driver
 *	User may select car type.
+## Class Diagram
+![picture alt](Order_a_Car-_Case_Diagram.png "Class Diagram")
 
