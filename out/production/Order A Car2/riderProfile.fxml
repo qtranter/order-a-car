@@ -85,43 +85,66 @@
                               <Font name="System Bold Italic" size="30.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="45.0" prefHeight="30.0" prefWidth="200.0" text="Pick-Up Address" textAlignment="CENTER" underline="true">
 
+=======
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="45.0" prefHeight="30.0" prefWidth="200.0" text="Pick-Up Address" textAlignment="CENTER" underline="true">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="70.0" prefHeight="30.0" prefWidth="145.0" text="Street Address:" textAlignment="CENTER">
 
+=======
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="70.0" prefHeight="30.0" prefWidth="145.0" text="Street Address:" textAlignment="CENTER">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
                         <TextField fx:id="StreetAddressTextField" layoutX="30.0" layoutY="100.0" prefHeight="31.0" prefWidth="540.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="141.0" prefHeight="30.0" prefWidth="54.0" text="City:" textAlignment="CENTER">
 
+=======
+                        <TextField fx:id="StreetAddressTextField" layoutX="30.0" layoutY="100.0" prefHeight="31.0" prefWidth="540.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="141.0" prefHeight="30.0" prefWidth="54.0" text="City:" textAlignment="CENTER">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                         <TextField fx:id="CityTextField" layoutX="30.0" layoutY="171.0" prefHeight="31.0" prefWidth="180.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="273.0" layoutY="141.0" prefHeight="30.0" prefWidth="54.0" text="State:" textAlignment="CENTER">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="437.0" layoutY="141.0" prefHeight="30.0" prefWidth="85.0" text="Zipcode:" textAlignment="CENTER">
 
+=======
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="437.0" layoutY="141.0" prefHeight="30.0" prefWidth="85.0" text="Zipcode:" textAlignment="CENTER">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                         <ChoiceBox fx:id="OACPickStateDropBox" layoutX="257.0" layoutY="171.0" prefHeight="31.0" prefWidth="85.0" />
                         <TextField fx:id="ZipcodeTextField" layoutX="389.0" layoutY="171.0" prefHeight="31.0" prefWidth="180.0" />
                         <Separator layoutX="2.0" layoutY="213.0" prefHeight="9.0" prefWidth="600.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="213.0" />
@@ -146,49 +169,77 @@
                         <ChoiceBox fx:id="OACVehicleTypeDropBox" layoutX="222.0" layoutY="403.0" prefHeight="30.0" prefWidth="150.0" />
                         <Separator layoutX="-4.0" layoutY="544.0" prefHeight="0.0" prefWidth="394.0" />
                         <Button fx:id="OACPlaceOrderButton" layoutX="91.0" layoutY="562.0" mnemonicParsing="false" onAction="#placeOrder" prefHeight="96.0" prefWidth="211.0" text="Place Order">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
                         </Button>
+<<<<<<< HEAD
 
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="222.0" prefHeight="30.0" prefWidth="208.0" text="Destination Address" textAlignment="CENTER" underline="true">
 
+=======
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="222.0" prefHeight="30.0" prefWidth="208.0" text="Destination Address" textAlignment="CENTER" underline="true">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="254.0" prefHeight="30.0" prefWidth="145.0" text="Street Address:" textAlignment="CENTER">
 
+=======
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="254.0" prefHeight="30.0" prefWidth="145.0" text="Street Address:" textAlignment="CENTER">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
                         <TextField fx:id="destStreetAddressTextField" layoutX="30.0" layoutY="284.0" prefHeight="31.0" prefWidth="540.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="93.0" layoutY="323.0" prefHeight="30.0" prefWidth="54.0" text="City:" textAlignment="CENTER">
 
+=======
+                        <TextField fx:id="destStreetAddressTextField" layoutX="30.0" layoutY="284.0" prefHeight="31.0" prefWidth="540.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="93.0" layoutY="323.0" prefHeight="30.0" prefWidth="54.0" text="City:" textAlignment="CENTER">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
                         <TextField fx:id="destCityTextField" layoutX="30.0" layoutY="353.0" prefHeight="31.0" prefWidth="180.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="273.0" layoutY="323.0" prefHeight="30.0" prefWidth="54.0" text="State:" textAlignment="CENTER">
 
+=======
+                        <TextField fx:id="destCityTextField" layoutX="30.0" layoutY="353.0" prefHeight="31.0" prefWidth="180.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="273.0" layoutY="323.0" prefHeight="30.0" prefWidth="54.0" text="State:" textAlignment="CENTER">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="438.0" layoutY="323.0" prefHeight="30.0" prefWidth="85.0" text="Zipcode:" textAlignment="CENTER">
 
+=======
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="438.0" layoutY="323.0" prefHeight="30.0" prefWidth="85.0" text="Zipcode:" textAlignment="CENTER">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                         <ChoiceBox fx:id="OACDestStateDropBox" layoutX="258.0" layoutY="353.0" prefHeight="31.0" prefWidth="85.0" />
                         <TextField fx:id="destZipcodeTextField" layoutX="390.0" layoutY="353.0" prefHeight="31.0" prefWidth="180.0" />
                         <Separator layoutX="2.0" layoutY="391.0" prefHeight="9.0" prefWidth="600.0" />
@@ -254,7 +305,10 @@
                         <ChoiceBox fx:id="AMorPM" layoutX="515.0" layoutY="544.0" prefHeight="31.0" prefWidth="58.0" />
                         <Separator layoutX="390.0" layoutY="394.0" orientation="VERTICAL" prefHeight="193.0" prefWidth="3.0" />
                         <Separator layoutX="392.0" layoutY="587.0" prefHeight="2.0" prefWidth="208.0" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                      </children>
                   </AnchorPane>
                </content>
@@ -312,10 +366,15 @@
                               <Font name="System Bold Italic" size="30.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD
 
                         <Button fx:id="prefSavePrefButton" layoutX="235.0" layoutY="611.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="135.0" text="Save Preferences" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="230.0" />
                         <Separator layoutX="-1.0" layoutY="584.0" prefHeight="21.0" prefWidth="600.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="584.0" />
 
+=======
+                        <Button fx:id="prefSavePrefButton" layoutX="235.0" layoutY="611.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="135.0" text="Save Preferences" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="230.0" />
+                        <Separator layoutX="-1.0" layoutY="584.0" prefHeight="21.0" prefWidth="600.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="584.0" />
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="273.0" layoutY="141.0" prefHeight="30.0" prefWidth="54.0" text="State:" textAlignment="CENTER">
                            <font>
                               <Font size="20.0" />
@@ -339,19 +398,29 @@
                            </font>
                         </Label>
                         <Button fx:id="submitPickupHistory" layoutX="449.0" layoutY="408.0" mnemonicParsing="false" onAction="#riderHistoryClick" prefHeight="37.0" prefWidth="120.0" text="Update Preferences" />
+<<<<<<< HEAD
 
                         <Separator layoutX="15.0" layoutY="394.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="4.0" />
                         <Separator layoutX="582.0" layoutY="395.0" orientation="VERTICAL" prefHeight="199.0" prefWidth="6.0" />
                         <TableView fx:id="historyTable" layoutX="20.0" layoutY="450.0" prefHeight="155.0" prefWidth="560.0">
 
+=======
+                        <Separator layoutX="15.0" layoutY="394.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="4.0" />
+                        <Separator layoutX="582.0" layoutY="395.0" orientation="VERTICAL" prefHeight="199.0" prefWidth="6.0" />
+                        <TableView fx:id="historyTable" layoutX="20.0" layoutY="450.0" prefHeight="155.0" prefWidth="560.0">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                           <columns>
                             <TableColumn fx:id="nameColumn" prefWidth="130.0" resizable="false" text="Name" />
                             <TableColumn fx:id="dateColumn" resizable="false" text="Date" />
                               <TableColumn fx:id="pickupColumn" prefWidth="140.0" resizable="false" text="Pick-Up Address" />
                               <TableColumn fx:id="destinationColumn" prefWidth="140.0" resizable="false" text="Destination Address" />
+<<<<<<< HEAD
 
                               <TableColumn fx:id="costColumn" prefWidth="70.0" resizable="false" text="Cost" />
 
+=======
+                              <TableColumn fx:id="costColumn" prefWidth="70.0" resizable="false" text="Cost" />
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                           </columns>
                         </TableView>
                      </children>
@@ -362,3 +431,4 @@
       </TabPane>
    </children>
 </AnchorPane>
+

@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Login.fxml"));
         Parent root = loader.load();
@@ -24,5 +24,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
 }

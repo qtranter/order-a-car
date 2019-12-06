@@ -11,10 +11,15 @@
 <?import javafx.scene.text.Text?>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="Driver" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
 =======
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
 >>>>>>> final-deliverable
+=======
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
 
 
     <Tab text="Profile">
@@ -29,6 +34,7 @@
                     <Label fx:id="lastName" layoutX="103.0" layoutY="74.0" />
                     <Label fx:id="userName" layoutX="103.0" layoutY="122.0" />
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <Label fx:id="coins" layoutX="103.0" layoutY="163.0" />
                     <Label layoutX="169.0" layoutY="28.0" text="Total Rating: " />
                     <Label fx:id="rating" layoutX="245.0" layoutY="27.0" prefHeight="17.0" prefWidth="15.0" />
@@ -36,13 +42,20 @@
 <!--                    <Button fx:id="btnEditPhone" layoutX="228.0" layoutY="70.0" mnemonicParsing="false" text="Edit" />-->
 <!--                    <Button fx:id="btnEditCreditCard" layoutX="228.0" layoutY="118.0" mnemonicParsing="false" text="Edit" />-->
 =======
+=======
+
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                     <Label fx:id="coins" layoutX="89.0" layoutY="163.0" />
                     <Label layoutX="378.0" layoutY="28.0" text="Total Rating: " />
                     <Label fx:id="rating" layoutX="482.0" layoutY="28.0" />
                     <!--                    <Button fx:id="btnEditName" layoutX="228.0" layoutY="24.0" mnemonicParsing="false" onAction="#changeName" text="Edit" />-->
                     <!--                    <Button fx:id="btnEditPhone" layoutX="228.0" layoutY="70.0" mnemonicParsing="false" text="Edit" />-->
                     <!--                    <Button fx:id="btnEditCreditCard" layoutX="228.0" layoutY="118.0" mnemonicParsing="false" text="Edit" />-->
+<<<<<<< HEAD
 >>>>>>> final-deliverable
+=======
+
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                     <Button fx:id="btnLogOut" layoutX="399.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleLogOut" text="Log Out" />
                 </children>
             </AnchorPane>
@@ -65,6 +78,7 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                 <children>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <TableView fx:id="tableview" layoutX="111.0" layoutY="27.0" prefHeight="308.0" prefWidth="379.0">
                  <columns>
 <!--                   <TableColumn prefWidth="75.0" text="Name" />-->
@@ -75,6 +89,9 @@
                  </columns>
                </TableView>
 =======
+=======
+
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                     <TableView fx:id="tableview" layoutX="83.0" layoutY="76.0" onMouseClicked="#selectTrip" prefHeight="200.0" prefWidth="379.0">
                         <columns>
                             <!--                   <TableColumn prefWidth="75.0" text="Name" />-->
@@ -85,7 +102,11 @@
                         </columns>
                     </TableView>
                     <Button fx:id="btnTripComplete" layoutX="495.0" layoutY="120.0" mnemonicParsing="false" onMouseClicked="#tripComplete" text="Complete" />
+<<<<<<< HEAD
 >>>>>>> final-deliverable
+=======
+
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
                 </children>
                 <effect>
                     <Blend />

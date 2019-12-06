@@ -66,4 +66,7 @@ public class RideHistory {
 
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 976da2b0a29064b58a52956e788b1504eb165b61
