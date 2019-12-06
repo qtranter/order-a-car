@@ -5864,12 +5864,16 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 2019-12-02 17:34:09 jdbc[7]: null
 =======
 2019-12-04 23:54:44 jdbc[7]: null
 >>>>>>> blake's-rider-branch
+=======
+2019-12-02 17:34:09 jdbc[7]: null
+>>>>>>> final-deliverable
 org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-199]
 	at org.h2.message.DbException.get(DbException.java:205)
 	at org.h2.message.DbException.get(DbException.java:181)
@@ -5882,10 +5886,14 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at java.sql.DriverManager.getConnection(DriverManager.java:247)
 	at DatabaseManager.<init>(DatabaseManager.java:14)
 <<<<<<< HEAD
+<<<<<<< HEAD
 	at LogInController.<init>(LogInController.java:27)
 =======
 	at LogInController.<init>(LogInController.java:26)
 >>>>>>> blake's-rider-branch
+=======
+	at LogInController.<init>(LogInController.java:27)
+>>>>>>> final-deliverable
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -5906,10 +5914,14 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
 	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
 <<<<<<< HEAD
+<<<<<<< HEAD
 	at RiderProfileController.logOut(RiderProfileController.java:435)
 =======
 	at RiderProfileController.logOut(RiderProfileController.java:434)
 >>>>>>> blake's-rider-branch
+=======
+	at RiderProfileController.logOut(RiderProfileController.java:435)
+>>>>>>> final-deliverable
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -5977,6 +5989,9 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection wa
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
 	... 93 more
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> final-deliverable
 2019-12-03 19:33:04 jdbc[3]: exception
 java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
 	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1740)
@@ -5998,6 +6013,7 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:834)
+<<<<<<< HEAD
 2019-12-04 15:05:16 database: flush
 org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:D:/trant/Documents/Java Practice/Order A Car2/res/userDatabase.mv.db [1.4.199/7]" [50000-199]
 	at org.h2.message.DbException.get(DbException.java:194)
@@ -6193,6 +6209,9 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/trant/Doc
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 44 more
 2019-12-04 18:12:57 jdbc[7]: null
+=======
+2019-12-04 17:00:54 jdbc[7]: null
+>>>>>>> final-deliverable
 org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-199]
 	at org.h2.message.DbException.get(DbException.java:205)
 	at org.h2.message.DbException.get(DbException.java:181)
@@ -6224,7 +6243,11 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
 	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+<<<<<<< HEAD
 	at DriverController.handleLogOut(DriverController.java:177)
+=======
+	at RegistrationController.submitForm(RegistrationController.java:212)
+>>>>>>> final-deliverable
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -6246,8 +6269,11 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
 	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+<<<<<<< HEAD
 	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+=======
+>>>>>>> final-deliverable
 	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
 	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
 	at javafx.event.Event.fireEvent(Event.java:198)
@@ -6267,8 +6293,11 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
 	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+<<<<<<< HEAD
 	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+=======
+>>>>>>> final-deliverable
 	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
 	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
 	at javafx.event.Event.fireEvent(Event.java:198)
@@ -6290,8 +6319,13 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-199]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:617)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+<<<<<<< HEAD
 	... 93 more
 2019-12-04 18:12:57 jdbc[7]: null
+=======
+	... 89 more
+2019-12-04 17:00:54 jdbc[7]: null
+>>>>>>> final-deliverable
 org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-199]
 	at org.h2.message.DbException.get(DbException.java:205)
 	at org.h2.message.DbException.get(DbException.java:181)
@@ -6323,7 +6357,11 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3124)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3104)
 	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:3097)
+<<<<<<< HEAD
 	at DriverController.handleLogOut(DriverController.java:177)
+=======
+	at RegistrationController.submitForm(RegistrationController.java:212)
+>>>>>>> final-deliverable
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -6345,8 +6383,11 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
 	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+<<<<<<< HEAD
 	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+=======
+>>>>>>> final-deliverable
 	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
 	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
 	at javafx.event.Event.fireEvent(Event.java:198)
@@ -6366,8 +6407,11 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
 	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+<<<<<<< HEAD
 	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
 	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+=======
+>>>>>>> final-deliverable
 	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
 	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
 	at javafx.event.Event.fireEvent(Event.java:198)
@@ -6389,6 +6433,7 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-199]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:617)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+<<<<<<< HEAD
 	... 93 more
 2019-12-04 22:02:31 jdbc[7]: null
 =======
@@ -6400,16 +6445,87 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at org.h2.message.DbException.get(DbException.java:170)
 	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:242)
 	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:182)
+=======
+	... 89 more
+2019-12-04 22:01:38 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1740)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:495)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-12-04 22:02:32 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1740)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:495)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2019-12-04 17:03:47 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:D:/trant/Documents/Java Practice/Order A Car2/res/userDatabase.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:90)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2787)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:441)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:404)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3343)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:95)
+	at org.h2.engine.Database.getPageStore(Database.java:2739)
+	at org.h2.engine.Database.open(Database.java:769)
+	at org.h2.engine.Database.openDatabase(Database.java:319)
+	at org.h2.engine.Database.<init>(Database.java:313)
+	at org.h2.engine.Engine.openSession(Engine.java:69)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+>>>>>>> final-deliverable
 	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
 	at org.h2.Driver.connect(Driver.java:69)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:247)
 	at DatabaseManager.<init>(DatabaseManager.java:14)
 <<<<<<< HEAD
+<<<<<<< HEAD
 	at LogInController.<init>(LogInController.java:27)
 =======
 	at LogInController.<init>(LogInController.java:26)
 >>>>>>> blake's-rider-branch
+=======
+	at LogInController.<init>(LogInController.java:27)
+>>>>>>> final-deliverable
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -6423,6 +6539,7 @@ org.h2.message.DbException: The connection was not closed by the application and
 	at javafx.fxml.FXMLLoader.processStartElement(FXMLLoader.java:2707)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2527)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+<<<<<<< HEAD
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3214)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3175)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3148)
@@ -6500,3 +6617,46 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection wa
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:617)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
 	... 93 more
+=======
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2409)
+	at Main.start(Main.java:13)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$166(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$179(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$177(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$178(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$152(WinApplication.java:177)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:D:/trant/Documents/Java Practice/Order A Car2/res/userDatabase.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 50 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/trant/Documents/Java Practice/Order A Car2/res/userDatabase.mv.db [1.4.199/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:883)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
+	... 44 more
+2019-12-04 22:09:05 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1740)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:495)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+>>>>>>> final-deliverable

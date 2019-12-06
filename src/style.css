@@ -11,7 +11,9 @@
 }
 
 .tab {
-     -fx-padding: 5px;
+
+    -fx-padding: 5px;
+>>>>>>> final-deliverable
 }
 
 .Driver {
@@ -30,4 +32,3 @@
     -fx-background-size: 850px;
     -fx-font-weight: bold;
 }
-

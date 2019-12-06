@@ -49,11 +49,9 @@ public class LogInController {
         setScene(actionEvent, userScene);
     }
 
-
     private void loginRider(ActionEvent actionEvent, String userName, String password) throws SQLException, IOException, ClassNotFoundException {
         RiderProfileController riderController = new RiderProfileController(databaseManager.getUserID(userName, password));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("riderProfile.fxml"));
-
         loader.setController(riderController);
         Scene userScene = new Scene(loader.load());
         setScene(actionEvent, userScene);

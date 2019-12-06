@@ -73,19 +73,21 @@ public class RiderProfileController implements Initializable {
             "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC",
             "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI",
             "WY");
-//    private ObservableList<Integer> numOfRiders = FXCollections.observableArrayList(1,2,3,4,5,6,7,8);
-//    private ObservableList<Integer> driverRating = FXCollections.observableArrayList(5,4,3,2,1,0);
-//    private ObservableList<String> vehicType = FXCollections.observableArrayList("Any","Car","Truck","Sedan","SUV","Van");
+
+    private ObservableList<Integer> numOfRiders = FXCollections.observableArrayList(1,2,3,4,5,6,7,8);
+    private ObservableList<Integer> driverRating = FXCollections.observableArrayList(5,4,3,2,1,0);
+    private ObservableList<String> vehicType = FXCollections.observableArrayList("Any","Car","Truck","Sedan","SUV","Van");
 
     private ObservableList<String> amORpm = FXCollections.observableArrayList("AM","PM");
 
-    @FXML public TableView<Ride> historyTable;
-    @FXML public TableColumn<Ride, String> pickupColumn;
-    @FXML public TableColumn<Ride, String> destinationColumn;
-    @FXML public TableColumn<Ride, Double> costColumn;
-    @FXML public TableColumn<Ride, String> dateColumn;
-    @FXML public TableColumn<Ride, String> nameColumn;
-    private ObservableList<Ride> data = FXCollections.observableArrayList();
+    @FXML public TableView<RideHistory> historyTable;
+    @FXML public TableColumn<RideHistory, String> pickupColumn;
+    @FXML public TableColumn<RideHistory, String> destinationColumn;
+    @FXML public TableColumn<RideHistory, Double> costColumn;
+    @FXML public TableColumn<RideHistory, String> dateColumn;
+    @FXML public TableColumn<RideHistory, String> nameColumn;
+    private ObservableList<RideHistory> data = FXCollections.observableArrayList();;
+
 
     public String imageSelection() throws Exception{
         chosen.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.bmp", "*.png", "*.jpg", "*.gif"));
@@ -102,19 +104,22 @@ public class RiderProfileController implements Initializable {
 
     private int userID;
     private DatabaseManager databaseManager = new DatabaseManager();
-//    private DatabaseManager databaseManager;
 
-    public RiderProfileController(int userID) throws SQLException, ClassNotFoundException {
+
+    public RiderProfileController(int userID) throws SQLException {
+
         this.userID = userID;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-//        AMorPM.setItems(amORpm);
-//        AddCoinsTextField.setText("");
-//        dateDay.setText("");
-//        dateMonth.setText("");
+
+        AMorPM.setItems(amORpm);
+        AddCoinsTextField.setText("");
+        dateDay.setText("");
+        dateMonth.setText("");
+
 
         if(imagepath != null) {
             Image image = new Image(imagepath);
@@ -128,36 +133,40 @@ public class RiderProfileController implements Initializable {
 //        RiderRatingLabel.setText("5.0");
 
         try {
-        firstName.setText(databaseManager.getFirstName(userID));
-        lastName.setText(databaseManager.getLastName(userID));
-        userName.setText(databaseManager.getUserName(userID));
-        RiderCoinsLabel.setText(databaseManager.getCoins(userID));
-        RiderRatingLabel.setText(databaseManager.getRating(userID));
 
-//        if(imagepath != null) {
+            firstName.setText(databaseManager.getFirstName(userID));
+            lastName.setText(databaseManager.getLastName(userID));
+            userName.setText(databaseManager.getUserName(userID));
+            RiderCoinsLabel.setText(databaseManager.getCoins(userID));
+            RiderRatingLabel.setText(databaseManager.getRating(userID));
+
+            if(imagepath != null) {
 //            Image databaseManager.getImage(userID) = new Image(imagepath);
 //            RiderProfileImage.setImage(databaseManager.getImage(userID));
-//
-//            data.addAll(databaseManager.getRides(userID));
-//            pickupColumn.setCellValueFactory(new PropertyValueFactory<>("pickupAddress"));
-//            destinationColumn.setCellValueFactory(new PropertyValueFactory<>("destinationAddress"));
-//            costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
-//            dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-//            nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-//            historyTable.setItems(data);
-//            }
+
+                data.addAll((RideHistory) databaseManager.getRides(userID));
+                pickupColumn.setCellValueFactory(new PropertyValueFactory<>("pickupAddress"));
+                destinationColumn.setCellValueFactory(new PropertyValueFactory<>("destinationAddress"));
+                costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
+                dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+                nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+                historyTable.setItems(data);
+            }
+
         }catch (SQLException e){
             e.printStackTrace();
         }
 
-//        OACVehicleTypeDropBox.setItems(FXCollections.observableArrayList(vehicType));
-//        OACVehicleTypeDropBox.setValue("Any");
-//
-//        NumOfRidersDropBox.setItems(FXCollections.observableArrayList(numOfRiders));
-//        NumOfRidersDropBox.setValue(1);
-//
-//        OACDriverRatingDropBox.setItems(FXCollections.observableArrayList(driverRating));
-//        OACDriverRatingDropBox.setValue(5);
+
+        OACVehicleTypeDropBox.setItems(FXCollections.observableArrayList(vehicType));
+        OACVehicleTypeDropBox.setValue("Any");
+
+        NumOfRidersDropBox.setItems(FXCollections.observableArrayList(numOfRiders));
+        NumOfRidersDropBox.setValue(1);
+
+        OACDriverRatingDropBox.setItems(FXCollections.observableArrayList(driverRating));
+        OACDriverRatingDropBox.setValue(5);
+
 
         OACPickStateDropBox.setItems(FXCollections.observableArrayList(states));
         OACPickStateDropBox.setValue("FL");
@@ -187,18 +196,17 @@ public class RiderProfileController implements Initializable {
 
     }
 
-    public RiderProfileController() throws SQLException, ClassNotFoundException{
+
+    public void RiderProfileController() throws SQLException{
         databaseManager = new DatabaseManager();
     }
 
-    public void RiderController(int userID) throws SQLException, ClassNotFoundException {
+    public void RiderController(int userID) throws SQLException {
+
         this.userID = userID;
         this.databaseManager = new DatabaseManager();
     }
 
-//    private void updateCoins(String coins){
-//        databaseManager.setCoins(coins);
-//    }
 
     public void coinCalculation(){
         String stringOldCoins = RiderCoinsLabel.getText();
@@ -211,7 +219,6 @@ public class RiderProfileController implements Initializable {
         RiderCoinsLabel.setText(doubNewCoins.toString());
         AddCoinsTextField.setText("");
 
-//        updateCoins(doubNewCoins.toString());
     }
 
     private String pickUpAddress(){
@@ -222,7 +229,9 @@ public class RiderProfileController implements Initializable {
 
         String finalPickupAddress = pickUpStreetAddress + "\n" + pickUpCity + ", " + pickUpZip + ", " + pickUpState;
         //test
-        System.out.println(finalPickupAddress);
+
+//        System.out.println(finalPickupAddress);
+
         return finalPickupAddress;
     }
 
@@ -234,7 +243,9 @@ public class RiderProfileController implements Initializable {
 
         String finalDestAddress = destStreetAddress + "\n" + destCity + ", " + destZip + ", " + destState;
         //test
-        System.out.println(finalDestAddress);
+
+//        System.out.println(finalDestAddress);
+
         return finalDestAddress;
     }
 
@@ -263,17 +274,18 @@ public class RiderProfileController implements Initializable {
 //        System.out.println(date);
         return date;
     }
-//    private String laterDate(String month, String day, String year){
-//        String date = "";
-//        if(dateMonth.getText().isEmpty() || dateDay.getText().isEmpty()){
-//            date = noDate().toString();
-//        }
-//        else{
-//            date = month + "/" + day + "/" + year;
-//        }
-////        System.out.println(date);
-//        return date;
-//    }
+
+    private String laterDate(String month, String day, String year){
+        String date = "";
+        if(dateMonth.getText().isEmpty() || dateDay.getText().isEmpty()){
+            date = noDate().toString();
+        }
+        else{
+            date = month + "/" + day + "/" + year;
+        }
+//        System.out.println(date);
+        return date;
+    }
 
 
     private String noTime(){
@@ -284,21 +296,29 @@ public class RiderProfileController implements Initializable {
 //        System.out.println(time);
         return time;
     }
-//    private String laterTime(String hour, String minute, String amORpm){
-//        String time = "";
-//        if(timeHour.getText().isEmpty() || timeMinute.getText().isEmpty() || AMorPM.getValue().isEmpty()){
-//            time = noTime().toString();
-//        }
-//        else{
-//            time = hour + ":" + minute + " " + amORpm;
-//        }
-////        System.out.println(time);
-//        return time;
-//    };
+
+    private String laterTime(String hour, String minute, String amORpm){
+        String time = "";
+        if(timeHour.getText().isEmpty() || timeMinute.getText().isEmpty() || AMorPM.getValue().isEmpty()){
+            time = noTime().toString();
+        }
+        else{
+            time = hour + ":" + minute + " " + amORpm;
+        }
+//        System.out.println(time);
+        return time;
+    };
+
 
 
     public void placeOrder(){
-        double cost = 0.0;
+//        dateColumn.setCellValueFactory(new PropertyValueFactory<>(laterDate(dateMonth.getText(), dateDay.getText(), dateYear.getText())));
+//        pickupColumn.setCellValueFactory(new PropertyValueFactory<>(pickUpAddress()));
+//        destinationColumn.setCellValueFactory(new PropertyValueFactory<>(destinationAddress()));
+//        //need to figure out what to do about cost.
+//        costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
+//        nameColumn.setCellValueFactory(new PropertyValueFactory<>(name(firstName.getText(), lastName.getText())));
+
 
         pickupColumn.setCellValueFactory(new PropertyValueFactory<>("pickupAddress"));
         destinationColumn.setCellValueFactory(new PropertyValueFactory<>("destinationAddress"));
@@ -306,9 +326,9 @@ public class RiderProfileController implements Initializable {
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        getRide();
 
-        databaseManager.insertRide(userID, pickUpAddress(), destinationAddress(), userName.getText());
+//        historyTable.setItems(getRide());
+        getRide();
 
         StreetAddressTextField.setText("");
         CityTextField.setText("");
@@ -320,26 +340,34 @@ public class RiderProfileController implements Initializable {
         OACDestStateDropBox.setValue("FL");
         destZipcodeTextField.setText("");
 
-//        OACVehicleTypeDropBox.setValue("Any");
-//        NumOfRidersDropBox.setValue(1);
-//        OACDriverRatingDropBox.setValue(5);
-//
-//        dateMonth.setText("");
-//        dateDay.setText("");
-//        dateYear.setText("2019");
-//
-//        timeHour.setText("");
-//        timeMinute.setText("");
-//        AMorPM.setValue("");
+
+        OACVehicleTypeDropBox.setValue("Any");
+        NumOfRidersDropBox.setValue(1);
+        OACDriverRatingDropBox.setValue(5);
+
+        dateMonth.setText("");;
+        dateDay.setText("");;
+        dateYear.setText("2019");;
+
+        timeHour.setText("");
+        timeMinute.setText("");
+        AMorPM.setValue("");
+
 
     }
 
     private void getRide(){
         double cost = 0.0;
 
-        Ride history = new Ride(name
+
+        RideHistory history = new RideHistory(name
                 (firstName.getText(), lastName.getText()), pickUpAddress(), destinationAddress(), cost,
-                noDate() + " \n" + noTime());
+                laterDate(dateMonth.getText(), dateDay.getText(), dateYear.getText() + "\n "
+                        + laterTime(timeHour.getText(), timeMinute.getText(), AMorPM.getValue())
+                ));
+//        double cost = history.getCost();
+
+
         historyTable.getItems().add(history);
     }
 
@@ -353,6 +381,7 @@ public class RiderProfileController implements Initializable {
 
 //        RiderRatingLabel.setText(finalDoubRiderRating.toString());
         return finalRating = finalDoubRiderRating.toString();
+
     }
 
     public void quickCar(){
@@ -374,8 +403,10 @@ public class RiderProfileController implements Initializable {
 //        }
 //    }
 
-    public void splitPickUpAddress(Ride address){
-        ObservableList<Ride> addressList;
+
+    public void splitPickUpAddress(RideHistory address){
+        ObservableList<RideHistory> addressList;
+
         addressList = historyTable.getSelectionModel().getSelectedItems();
         //test
 //        System.out.println("\n\n" + addressList.get(0).getPickupAddress() );
@@ -404,8 +435,10 @@ public class RiderProfileController implements Initializable {
         PrefZipcodeTextField.setText(puZip);
     }
 
-    public void splitDestinationAddress(Ride address){
-        ObservableList<Ride> addressList;
+
+    public void splitDestinationAddress(RideHistory address){
+        ObservableList<RideHistory> addressList;
+
         addressList = historyTable.getSelectionModel().getSelectedItems();
 
         String destAddress = addressList.get(0).getDestinationAddress();
@@ -441,4 +474,20 @@ public class RiderProfileController implements Initializable {
 
 
 
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
