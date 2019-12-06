@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
-    static final String JDBC_DRIVER = "org.h2.Driver";
+    //static final String JDBC_DRIVER = "org.h2.Driver";
     static final String DB_URL = "jdbc:h2:D:/trant/Documents/Java Practice/Order A Car2/res/userDatabase";
     private Connection con;
 

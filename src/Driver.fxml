@@ -10,7 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
+<<<<<<< HEAD
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="Driver" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+=======
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+>>>>>>> final-deliverable
 
 
     <Tab text="Profile">
@@ -24,12 +28,21 @@
                     <Label fx:id="firstName" layoutX="103.0" layoutY="27.0" />
                     <Label fx:id="lastName" layoutX="103.0" layoutY="74.0" />
                     <Label fx:id="userName" layoutX="103.0" layoutY="122.0" />
+<<<<<<< HEAD
+                    <Label fx:id="coins" layoutX="103.0" layoutY="163.0" />
+                    <Label layoutX="169.0" layoutY="28.0" text="Total Rating: " />
+                    <Label fx:id="rating" layoutX="245.0" layoutY="27.0" prefHeight="17.0" prefWidth="15.0" />
+<!--                    <Button fx:id="btnEditName" layoutX="228.0" layoutY="24.0" mnemonicParsing="false" onAction="#changeName" text="Edit" />-->
+<!--                    <Button fx:id="btnEditPhone" layoutX="228.0" layoutY="70.0" mnemonicParsing="false" text="Edit" />-->
+<!--                    <Button fx:id="btnEditCreditCard" layoutX="228.0" layoutY="118.0" mnemonicParsing="false" text="Edit" />-->
+=======
                     <Label fx:id="coins" layoutX="89.0" layoutY="163.0" />
                     <Label layoutX="378.0" layoutY="28.0" text="Total Rating: " />
                     <Label fx:id="rating" layoutX="482.0" layoutY="28.0" />
                     <!--                    <Button fx:id="btnEditName" layoutX="228.0" layoutY="24.0" mnemonicParsing="false" onAction="#changeName" text="Edit" />-->
                     <!--                    <Button fx:id="btnEditPhone" layoutX="228.0" layoutY="70.0" mnemonicParsing="false" text="Edit" />-->
                     <!--                    <Button fx:id="btnEditCreditCard" layoutX="228.0" layoutY="118.0" mnemonicParsing="false" text="Edit" />-->
+>>>>>>> final-deliverable
                     <Button fx:id="btnLogOut" layoutX="399.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleLogOut" text="Log Out" />
                 </children>
             </AnchorPane>
@@ -51,6 +64,17 @@
         <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                 <children>
+<<<<<<< HEAD
+               <TableView fx:id="tableview" layoutX="111.0" layoutY="27.0" prefHeight="308.0" prefWidth="379.0">
+                 <columns>
+<!--                   <TableColumn prefWidth="75.0" text="Name" />-->
+                     <TableColumn fx:id="name" prefWidth="130.0" text="Name" />
+                   <TableColumn fx:id="pickup" prefWidth="130.0" text="Pickup Location" />
+                     <TableColumn fx:id="destination" prefWidth="99.0" text="Destination" />
+<!--                     <TableColumn prefWidth="75.0" text="Select" />-->
+                 </columns>
+               </TableView>
+=======
                     <TableView fx:id="tableview" layoutX="83.0" layoutY="76.0" onMouseClicked="#selectTrip" prefHeight="200.0" prefWidth="379.0">
                         <columns>
                             <!--                   <TableColumn prefWidth="75.0" text="Name" />-->
@@ -61,6 +85,7 @@
                         </columns>
                     </TableView>
                     <Button fx:id="btnTripComplete" layoutX="495.0" layoutY="120.0" mnemonicParsing="false" onMouseClicked="#tripComplete" text="Complete" />
+>>>>>>> final-deliverable
                 </children>
                 <effect>
                     <Blend />
