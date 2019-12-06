@@ -77,4 +77,7 @@ CREATE TABLE RIDES (
 *	User may select car type.
 ## Class Diagram
 ![picture alt](Order_a_Car-_Case_Diagram.png "Class Diagram")
+## Files
+[SRS Document](SRS_Work.docx)
+[Summary](summary.docx)
 
