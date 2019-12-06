@@ -49,3 +49,30 @@ CREATE TABLE RIDES (
 - User/Rides database tables updated to correctly capture all information
 - CSS stylesheet added for backgrounds
 
+## Features 
+### Login Scene:
+
+*	User may login in with user and password.
+*	User may sign up
+### Registration Scene:
+*	User may create an account with user and password.
+*	User may choose between rider or driver
+*	If user chooses driver, they user can input car information.
+### Driver Scene:
+*	User can see profile and rating.
+*	User may select a trip.
+*	User may see available rides.
+*	User may complete ride.
+*	User may also see history of rides
+*	User may log out.
+### Rider Scene:
+*	User may see profile
+*	User may see current coins.
+*	User may add coins.
+*	User may add preferences.
+*	User may add pick up address
+*	User may add number of riders
+*	User may schedule ride
+*	User may select rated driver
+*	User may select car type.
+
