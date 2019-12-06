@@ -1,7 +1,5 @@
-# This branch is a save state of progress, ignore it please. Once final-deliverable is up to date, this branch will be deleted.
-
-
-
+# Team 6 
+Group members: Leemarie Collet, John Marx, Karan Patel, Blake Smith, and Quaide Trainter 
 # Order A Car
 
 Order A Car now has the vast majority of its functionality completed. The essentials of the program have been completed and most of the back-end logic has been written.
@@ -50,4 +48,37 @@ CREATE TABLE RIDES (
 - Ride class added to handle state transfer after login
 - User/Rides database tables updated to correctly capture all information
 - CSS stylesheet added for backgrounds
+
+## Features 
+### Login Scene:
+
+*	User may login in with user and password.
+*	User may sign up
+### Registration Scene:
+*	User may create an account with user and password.
+*	User may choose between rider or driver
+*	If user chooses driver, they user can input car information.
+### Driver Scene:
+*	User can see profile and rating.
+*	User may select a trip.
+*	User may see available rides.
+*	User may complete ride.
+*	User may also see history of rides
+*	User may log out.
+### Rider Scene:
+*	User may see profile
+*	User may see current coins.
+*	User may add coins.
+*	User may add preferences.
+*	User may add pick up address
+*	User may add number of riders
+*	User may schedule ride
+*	User may select rated driver
+*	User may select car type.
+## Class Diagram
+![picture alt](Order_a_Car-_Case_Diagram.png "Class Diagram")
+## Files
+[SRS Document](SRS_Work.docx)
+
+[Summary](summary.docx)
 
