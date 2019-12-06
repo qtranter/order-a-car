@@ -1,5 +1,3 @@
-
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -211,7 +209,7 @@ public class RegistrationController implements Initializable {
             //final Stage stage = (Stage) source.getScene().getWindow();
             //stage.close(); //closes the window
 
-            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
             Scene riderScene = new Scene(root);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

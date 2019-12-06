@@ -7,11 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -21,7 +19,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DriverController implements Initializable {
-
 
 
     @FXML
@@ -34,102 +31,25 @@ public class DriverController implements Initializable {
     private Label coins;
     @FXML
     private Label rating;
-
     @FXML
     private Label totalOAC;
-
-    @FXML
-    private Button btnEditName;
-
-    @FXML
-    private Button btnEditPhone;
-
-    @FXML
-    private Button btnEditCreditCard;
-
     @FXML
     private Button btnLogOut;
-
-    @FXML
-    private Label tripPaymentLabel;
-
-    @FXML
-    private Label totalTipLabel;
-
     @FXML
     private Label totalEarnedLabel;
-
     @FXML
-    private Button btnSelectTripOne;
-
+    private Button btnTripComplete;
     @FXML
-    private Button btnSelectTripTwo;
-
+    private TableView<?> historyTableView;
     @FXML
-    private Button btnSelectTripThree;
-
+    private TableColumn<?, String> historyName;
     @FXML
-    private Label selectTripNameOne;
-
+    private TableColumn<?, String> historyPickup;
     @FXML
-    private Label selectTripNameTwo;
-
+    private TableColumn<?, String> historyDestination;
     @FXML
-    private Label selectTripThree;
+    private TableColumn<?, Integer> historyPayment;
 
-    @FXML
-    private Label selectTripDestinationOne;
-
-    @FXML
-    private Label selectTripDestinationTwo;
-
-    @FXML
-    private Label selectTripDestinationThree;
-
-    @FXML
-    private Label selectTripAddressOne;
-
-    @FXML
-    private Label selectTripAddressTwo;
-
-    @FXML
-    private Label selectTripAddressThree;
-
-    @FXML
-    private Label historyNameOne;
-
-    @FXML
-    private Label historyAddressOne;
-
-    @FXML
-    private Label historyPaymentOne;
-
-    @FXML
-    private Label historyTipOne;
-
-    @FXML
-    private Label historyNameTwo;
-
-    @FXML
-    private Label historyAddressTwo;
-
-    @FXML
-    private Label historyPaymentTwo;
-
-    @FXML
-    private Label historyTipTwo;
-
-    @FXML
-    private Label historyNameThree;
-
-    @FXML
-    private Label historyAddressThree;
-
-    @FXML
-    private Label historyPaymentThree;
-
-    @FXML
-    private Label historyTipThree;
 
     private int userID;
     private DatabaseManager databaseManager = new DatabaseManager();
@@ -169,19 +89,30 @@ public class DriverController implements Initializable {
     }
 
     @FXML
-    void changeName(ActionEvent event) {
+    void selectTrip(MouseEvent event) {
+        if (event.getClickCount() == 2) {
+            // tableview.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+            System.out.println ("Trip Selected: " + tableview.getSelectionModel().getSelectedItem().getName() );
+        }
+    }
+
+    @FXML
+    void tripComplete(MouseEvent event) {
+        if(event.getClickCount() == 1) {
+            //tableview.getSelectionModel().getSelectedItem().getName();
+            System.out.println ("Trip Complete!");
+            historyName = name;
+        }
     }
 
     @FXML
     void handleLogOut(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-            Scene logInScene = new Scene(root);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(logInScene);
-            window.show();
-        }
-
-    
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene logInScene = new Scene(root);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(logInScene);
+        window.show();
+    }
 
     private void setScene(ActionEvent event, Scene nextScene) {
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -190,7 +121,6 @@ public class DriverController implements Initializable {
         window.show();
     }
 
+
+
 }
-
-
-
